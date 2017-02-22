@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */; };
 		7D6CBE551E5C09EE00435CB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE541E5C09EE00435CB1 /* AppDelegate.swift */; };
 		7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE561E5C09EE00435CB1 /* ViewController.swift */; };
 		7D6CBE5A1E5C09EE00435CB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE581E5C09EE00435CB1 /* Main.storyboard */; };
@@ -19,10 +20,6 @@
 		7D6CBE8C1E5C0AD900435CB1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */; };
 		7D6CBE8F1E5C0FB100435CB1 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE8D1E5C0FB100435CB1 /* SignUPViewController.swift */; };
 		7D6CBE921E5C2AFD00435CB1 /* SignUPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */; };
-		7D6CBE951E5C535400435CB1 /* homeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE931E5C535400435CB1 /* homeTableViewController.swift */; };
-		7D6CBE961E5C535400435CB1 /* homeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE941E5C535400435CB1 /* homeTableViewController.xib */; };
-		7D6CBE991E5C537A00435CB1 /* homeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE971E5C537A00435CB1 /* homeTableViewCell.swift */; };
-		7D6CBE9A1E5C537A00435CB1 /* homeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE981E5C537A00435CB1 /* homeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "REST-Api.swift"; sourceTree = "<group>"; };
 		7D6CBE511E5C09EE00435CB1 /* FriendFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6CBE541E5C09EE00435CB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D6CBE561E5C09EE00435CB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,10 +59,6 @@
 		7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = FriendFinder/LoginViewController.xib; sourceTree = "<group>"; };
 		7D6CBE8D1E5C0FB100435CB1 /* SignUPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUPViewController.swift; path = FriendFinder/SignUPViewController.swift; sourceTree = "<group>"; };
 		7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUPViewController.xib; sourceTree = "<group>"; };
-		7D6CBE931E5C535400435CB1 /* homeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeTableViewController.swift; sourceTree = "<group>"; };
-		7D6CBE941E5C535400435CB1 /* homeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeTableViewController.xib; sourceTree = "<group>"; };
-		7D6CBE971E5C537A00435CB1 /* homeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeTableViewCell.swift; sourceTree = "<group>"; };
-		7D6CBE981E5C537A00435CB1 /* homeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = homeTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +89,7 @@
 		7D6CBE481E5C09EE00435CB1 = {
 			isa = PBXGroup;
 			children = (
-				7D6CBE971E5C537A00435CB1 /* homeTableViewCell.swift */,
-				7D6CBE981E5C537A00435CB1 /* homeTableViewCell.xib */,
-				7D6CBE931E5C535400435CB1 /* homeTableViewController.swift */,
-				7D6CBE941E5C535400435CB1 /* homeTableViewController.xib */,
+				5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */,
 				7D6CBE8D1E5C0FB100435CB1 /* SignUPViewController.swift */,
 				7D6CBE891E5C0AD900435CB1 /* LoginViewController.swift */,
 				7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */,
@@ -259,8 +250,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D6CBE9A1E5C537A00435CB1 /* homeTableViewCell.xib in Resources */,
-				7D6CBE961E5C535400435CB1 /* homeTableViewController.xib in Resources */,
 				7D6CBE921E5C2AFD00435CB1 /* SignUPViewController.xib in Resources */,
 				7D6CBE8C1E5C0AD900435CB1 /* LoginViewController.xib in Resources */,
 				7D6CBE621E5C09EE00435CB1 /* LaunchScreen.storyboard in Resources */,
@@ -292,11 +281,10 @@
 			files = (
 				7D6CBE8F1E5C0FB100435CB1 /* SignUPViewController.swift in Sources */,
 				7D6CBE8B1E5C0AD900435CB1 /* LoginViewController.swift in Sources */,
-				7D6CBE951E5C535400435CB1 /* homeTableViewController.swift in Sources */,
 				7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */,
 				7D6CBE5D1E5C09EE00435CB1 /* FriendFinder.xcdatamodeld in Sources */,
-				7D6CBE991E5C537A00435CB1 /* homeTableViewCell.swift in Sources */,
 				7D6CBE551E5C09EE00435CB1 /* AppDelegate.swift in Sources */,
+				5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

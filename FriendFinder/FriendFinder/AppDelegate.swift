@@ -18,12 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        navController = UINavigationController()
-        navController?.pushViewController(viewController, animated: true)
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window!.rootViewController = navController
-        self.window!.backgroundColor = UIColor.white
+        let rootVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        let nav = UINavigationController(rootViewController: rootVC)
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
         return true
     }
 

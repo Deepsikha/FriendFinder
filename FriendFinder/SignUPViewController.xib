@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUPViewController" customModule="FriendFinder" customModuleProvider="target">
             <connections>
                 <outlet property="btnsubmit" destination="w2P-rN-vuO" id="Na4-bF-UvA"/>
+                <outlet property="fet" destination="7JW-ff-UG6" id="hdC-S0-ImD"/>
                 <outlet property="firstname" destination="zSY-SN-q5Q" id="p1k-uR-vD3"/>
                 <outlet property="lastname" destination="ze4-Oh-2hT" id="rgU-yy-xgn"/>
                 <outlet property="pwd" destination="8r6-8D-wvb" id="o3s-Ac-by7"/>
@@ -96,6 +97,14 @@
                     <state key="normal" title="SUBMIT"/>
                     <connections>
                         <action selector="signUPAction:" destination="-1" eventType="touchUpInside" id="a0K-MY-fTk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7JW-ff-UG6">
+                    <rect key="frame" x="137" y="20" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="fet:" destination="-1" eventType="touchDown" id="yWC-zK-e9t"/>
                     </connections>
                 </button>
             </subviews>
