@@ -17,7 +17,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var pwd: UITextField!
     @IBOutlet var submit: UIButton!
     @IBOutlet var NewAcc: UIButton!
-    let moc = DataController()
+//    let moc = DataController()
     var fetchedPerson: [Person] = []
     var filteredArray = [Person]()
     var valueSentFromSignUPPage:String?
