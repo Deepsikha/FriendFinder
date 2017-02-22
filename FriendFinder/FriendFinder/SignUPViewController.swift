@@ -41,8 +41,6 @@ class SignUPViewController: UIViewController {
                 self.present(alt, animated: true, completion: nil)
             }else {
                 _ = self.firstname.text
-                let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-                self.navigationController?.pushViewController(vc, animated: true)
             }
             
             let parameters = ["name": self.firstname.text!,"surname": self.lastname.text!,"username": self.username.text!,"password": self.pwd.text!]
@@ -51,11 +49,18 @@ class SignUPViewController: UIViewController {
                 
             }, response_Dictionary: { (json) in
                 DispatchQueue.main.async {
-                    if(json.value(forKey: "resp") as! String == "Success"){
+                    
+                     if(json.value(forKey: "resp") as! String == "Taken"){
+                        let alt = UIAlertController(title: "Username already taken!", message: "Please enter a different username", preferredStyle: UIAlertControllerStyle.alert)
+                        alt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+                        self.present(alt, animated: true, completion: nil)
+                        self.username.text = ""
+                    }
+                     else{
                         self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
                     }
                 }
-                
+            
             }, response_Array: { (resultsArr) in
                 
             }, isTokenEmbeded: false)
