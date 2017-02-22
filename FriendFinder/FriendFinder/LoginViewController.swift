@@ -17,7 +17,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var pwd: UITextField!
     @IBOutlet var submit: UIButton!
     @IBOutlet var NewAcc: UIButton!
-//    let moc = DataController()
+    
     var fetchedPerson: [Person] = []
     var filteredArray = [Person]()
     var valueSentFromSignUPPage:String?
@@ -53,29 +53,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         submit.layer.cornerRadius = 8
         
-        fetchData()
+        
         //        Forward.frame = CGRectMake(100, 100, 50, 50)
         //MyTableView.frame = CGRectMake(20, 50, 250, 400)
     }
     
-    func fetchData(){
-        let managedContext = persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
-        
-        let entityDesc = NSEntityDescription.entity(forEntityName: "Person", in: managedContext)
-        
-        fetchRequest.entity = entityDesc
-        do {
-            let result = try managedContext.fetch(fetchRequest)
-            print(result)
-        } catch {
-            let fetchError = error as NSError
-            print("sadsabdfjsadvgs \(fetchError)")
-        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
+        self.email.resignFirstResponder()
+        self.pwd.resignFirstResponder()
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
         
@@ -97,15 +82,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         UIView.animate(withDuration: 3.0, delay: 2.0, options: [], animations: {self.submit.alpha = 1.0
         }, completion: nil)
-        fetchData()
     }
     
     //MARK: - ButtonAction
     @IBAction func ForwardAction(_ sender: UIButton) {
-        print("Button tapped \u{1f44d}")
-        
-        let name = email.text
-        let pw = pwd.text
         
         // Validation
         if (self.pwd.text?.isEmpty)! || (self.email.text?.isEmpty)! {
@@ -113,33 +93,29 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             alt.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             self.present(alt, animated: true, completion: nil)
         }
-        // Login verification static
-//        if pw == "makein" ||  pw == "lanetteam1" && name == "dev_76" {
-//            let vc = SignUPViewController(nibName:"SignUPViewController", bundle: nil)
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }else{
-//            let alt = UIAlertController(title: "", message: "Wrong Password", preferredStyle: UIAlertControllerStyle.alert)
-//            alt.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-//            self.present(alt, animated: true, completion: nil)
-//        }
-        
-        // Log in Verification using CoreData
-        _ = persistentContainer.viewContext
-        let userEmailStored = UserDefaults.standard.string(forKey: "username")
-        let passwordstored = UserDefaults.standard.string(forKey: "password")
-        
-        if userEmailStored == nil {
+        else{
+            let pd = self.pwd.text
+            let un = self.email.text
+            let parameters = ["username": un!, "password": pd!] as Dictionary<String, String>
+            
+            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "fetchd", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
+                
+            }, response_Dictionary: { (json) in
+                DispatchQueue.main.async {
+                    if(json.value(forKey: "resp") as! String == "Success"){
+                    self.navigationController?.pushViewController(SignUPViewController(nibName: "SignUPViewController", bundle: nil), animated: true)
+                    }
+                }
+
+            }, response_Array: { (resultsArr) in
+                
+            }, isTokenEmbeded: false)
             
         }
-        if pw == passwordstored && name == userEmailStored {
-        let vc = LoginViewController(nibName:"LoginViewController",bundle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
-            }else{
-                let alt = UIAlertController(title: "", message: "Wrong Password", preferredStyle: UIAlertControllerStyle.alert)
-                alt.addAction(UIAlertAction(title: "Dismiss", style:UIAlertActionStyle.default,handler: nil))
-                self.present(alt, animated: true, completion: nil)
-            }
+        
     }
+    
+    
     
     @IBAction func signUPAction(_ sender: UIButton) {
         let vc = SignUPViewController(nibName: "SignUPViewController", bundle: nil)
