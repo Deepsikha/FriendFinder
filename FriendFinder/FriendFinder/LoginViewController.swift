@@ -103,7 +103,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             }, response_Dictionary: { (json) in
                 DispatchQueue.main.async {
                     if(json.value(forKey: "resp") as! String == "Success"){
-                    self.navigationController?.pushViewController(SignUPViewController(nibName: "SignUPViewController", bundle: nil), animated: true)
+                    self.navigationController?.pushViewController(FriendViewController(nibName: "FriendViewController", bundle: nil), animated: true)
                     }
                 }
 
