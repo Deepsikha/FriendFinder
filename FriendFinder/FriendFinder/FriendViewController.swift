@@ -28,7 +28,7 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 12
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
