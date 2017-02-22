@@ -49,15 +49,19 @@ class SignUPViewController: UIViewController {
                 
             }, response_Dictionary: { (json) in
                 DispatchQueue.main.async {
-                    
+                    if json.value(forKey: "resp") != nil{
                      if(json.value(forKey: "resp") as! String == "Taken"){
                         let alt = UIAlertController(title: "Username already taken!", message: "Please enter a different username", preferredStyle: UIAlertControllerStyle.alert)
                         alt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
                         self.present(alt, animated: true, completion: nil)
                         self.username.text = ""
                     }
-                     else{
+                     else if(json.value(forKey: "resp") as! String == "Success"){
                         self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
+                    }
+                    }
+                     else {
+                        print(json.value(forKey: "error")!)
                     }
                 }
             
