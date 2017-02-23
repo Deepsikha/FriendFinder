@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         if(UserDefaults.standard.value(forKey: "user") != nil){
-            let rootVC = FriendViewController(nibName: "FriendViewController", bundle: nil)
+            let rootVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
             let nav = UINavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()
