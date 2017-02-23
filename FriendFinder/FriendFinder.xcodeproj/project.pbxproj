@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */; };
-<<<<<<< HEAD
+
 		7B2690701E5EDE31000B04F6 /* UserDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B26906E1E5EDE31000B04F6 /* UserDetailCell.swift */; };
 		7B2690711E5EDE31000B04F6 /* UserDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B26906F1E5EDE31000B04F6 /* UserDetailCell.xib */; };
-=======
+
 		5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBEA451E5EAA7400736FB3 /* ShareData.swift */; };
->>>>>>> origin/dev+62
+
 		7B334EC41E5DA7610092C639 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B334EC21E5DA7610092C639 /* HomeViewController.swift */; };
 		7B334EC51E5DA7610092C639 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B334EC31E5DA7610092C639 /* HomeViewController.xib */; };
 		7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */; };
@@ -53,12 +53,11 @@
 
 /* Begin PBXFileReference section */
 		5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "REST-Api.swift"; sourceTree = "<group>"; };
-<<<<<<< HEAD
+
 		7B26906E1E5EDE31000B04F6 /* UserDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailCell.swift; sourceTree = "<group>"; };
 		7B26906F1E5EDE31000B04F6 /* UserDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailCell.xib; sourceTree = "<group>"; };
-=======
 		5CEBEA451E5EAA7400736FB3 /* ShareData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
->>>>>>> origin/dev+62
+
 		7B334EC21E5DA7610092C639 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7B334EC31E5DA7610092C639 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendViewController.swift; path = FriendFinder/FriendViewController.swift; sourceTree = "<group>"; };
@@ -113,12 +112,12 @@
 		7D6CBE481E5C09EE00435CB1 = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
+
 				7B26906E1E5EDE31000B04F6 /* UserDetailCell.swift */,
 				7B26906F1E5EDE31000B04F6 /* UserDetailCell.xib */,
-=======
+
 				5CEBEA451E5EAA7400736FB3 /* ShareData.swift */,
->>>>>>> origin/dev+62
+
 				5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */,
 				7B334EC21E5DA7610092C639 /* HomeViewController.swift */,
 				7B334EC31E5DA7610092C639 /* HomeViewController.xib */,
@@ -326,10 +325,8 @@
 				7B2690701E5EDE31000B04F6 /* UserDetailCell.swift in Sources */,
 				7D6CBE8B1E5C0AD900435CB1 /* LoginViewController.swift in Sources */,
 				7B334EC41E5DA7610092C639 /* HomeViewController.swift in Sources */,
-<<<<<<< HEAD
-=======
+
 				5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */,
->>>>>>> origin/dev+62
 				7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */,
 				7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */,
 				7D6CBE5D1E5C09EE00435CB1 /* FriendFinder.xcdatamodeld in Sources */,
