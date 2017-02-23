@@ -18,6 +18,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var submit: UIButton!
     @IBOutlet var NewAcc: UIButton!
     
+    var defaults = UserDefaults.standard
     var fetchedPerson: [Person] = []
     var filteredArray = [Person]()
     var valueSentFromSignUPPage:String?
@@ -37,7 +38,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         self.title = "LOG IN"
         self.navigationController?.navigationBar.isHidden = true
-        //label.font = label.font.withSize(20)
         let color = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         email.layer.borderColor = color.cgColor
         email.layer.borderWidth = 2
@@ -52,10 +52,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         pwd.backgroundColor = UIColor.lightGray
         
         submit.layer.cornerRadius = 8
-        
-        
-        //        Forward.frame = CGRectMake(100, 100, 50, 50)
-        //MyTableView.frame = CGRectMake(20, 50, 250, 400)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,6 +100,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             }, response_Dictionary: { (json) in
                 DispatchQueue.main.async {
                     if(json.value(forKey: "resp") as! String == "Success"){
+                        self.defaults.set(pd, forKey: "pass")
                     self.navigationController?.pushViewController(FriendViewController(nibName: "FriendViewController", bundle: nil), animated: true)
                     }
                 }

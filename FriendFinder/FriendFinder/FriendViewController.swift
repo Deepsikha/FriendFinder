@@ -11,10 +11,16 @@ import UIKit
 class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     var animals: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
+    var defaults = UserDefaults.standard
     @IBOutlet var barSearch: UISearchBar!
     @IBOutlet var tableFriend: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let name = defaults.string(forKey: "user")
+        {
+            print(name)
+            
+        }
         self.navigationController?.isNavigationBarHidden = true
         tableFriend.delegate = self
         tableFriend.dataSource = self

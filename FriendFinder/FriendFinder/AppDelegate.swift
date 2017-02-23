@@ -9,20 +9,33 @@
 import UIKit
 import CoreData
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navController: UINavigationController?
     var viewController = FriendViewController()
+    let shareData = ShareData.sharedInstance
+    let defaults = UserDefaults.standard
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let rootVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        let nav = UINavigationController(rootViewController: rootVC)
-        window?.rootViewController = nav
-        window?.makeKeyAndVisible()
-        return true
+        
+        if(UserDefaults.standard.value(forKey: "pass") != nil){
+            let rootVC = FriendViewController(nibName: "FriendViewController", bundle: nil)
+            let nav = UINavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+            return true
+        }
+        else{
+            let rootVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            let nav = UINavigationController(rootViewController: rootVC)
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible()
+            return true
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
