@@ -12,7 +12,7 @@ import CoreLocation
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
     var navController: UINavigationController?
@@ -20,11 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let shareData = ShareData.sharedInstance
     let defaults = UserDefaults.standard
     var locationManager = CLLocationManager()
+    var location : String!
+    var user = String(describing: UserDefaults.standard.value(forKey: "user")!)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-
+        
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 150.0
+        locationManager.startUpdatingLocation()
+        
         if(UserDefaults.standard.value(forKey: "user") != nil){
+            
+            
             let rootVC = FriendViewController(nibName: "FriendViewController", bundle: nil)
             let nav = UINavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
@@ -40,6 +49,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation])
+    {
+        let currentLatitude = String(describing: (locationManager.location?.coordinate.latitude)!)
+        let currentLongitude = String(describing: (locationManager.location?.coordinate.longitude)!)
+        location = currentLatitude.appending(",").appending(currentLongitude)
+        
+        if(user != ""){
+        let parameters = ["username": user,"location": location!]
+            print("updated")
+            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "loc", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
+            
+        }, response_Dictionary: { (result) in
+            
+        }, response_Array: { (result) in
+            
+        }, isTokenEmbeded: false)
+        }
+        else{
+        print("Username is empty")
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error)
+    {
+        
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
