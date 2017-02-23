@@ -11,6 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="FriendFinder" customModuleProvider="target">
             <connections>
+                <outlet property="imgProfile" destination="ZBi-lQ-fCD" id="edw-yS-j54"/>
+                <outlet property="imgQRCode" destination="A6v-Mf-byx" id="r7W-hB-Koa"/>
+                <outlet property="lblAddress" destination="IrM-cB-hD3" id="Xyx-rZ-D0m"/>
+                <outlet property="lblUsername" destination="QKy-ZF-Px0" id="rKM-Kk-Krf"/>
+                <outlet property="mapCurrentLocation" destination="mXR-3W-LU3" id="Zom-5N-iJz"/>
+                <outlet property="segMenuBar" destination="oYA-MF-HLn" id="ZJo-oh-BlD"/>
+                <outlet property="tblFriendList" destination="zX3-xt-Jmf" id="QPw-yc-KcN"/>
+                <outlet property="tblUserDetails" destination="IYo-Hc-Z5z" id="ul8-Q3-U7V"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -51,6 +59,10 @@
                             <rect key="frame" x="0.0" y="0.0" width="382" height="158"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A6v-Mf-byx">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="158"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IYo-Hc-Z5z">
                                     <rect key="frame" x="0.0" y="0.0" width="382" height="158"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -78,6 +90,9 @@
                                             <segment title="Friends"/>
                                             <segment title="QRCode"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="switchTable:" destination="-1" eventType="valueChanged" id="s2J-UU-B5D"/>
+                                        </connections>
                                     </segmentedControl>
                                 </navigationItem>
                             </items>
