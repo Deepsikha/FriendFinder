@@ -8,39 +8,70 @@
 
 import UIKit
 
-class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
+    var friendList = [String]()
+    var filteredFriendList = [String]()
+    var resultSearchController = UISearchController()
 
-    var animals: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
-    @IBOutlet var barSearch: UISearchBar!
     @IBOutlet var tableFriend: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        friendList = ["dev_76","dev_30","dev_62"]
         self.navigationController?.isNavigationBarHidden = true
         tableFriend.delegate = self
         tableFriend.dataSource = self
         tableFriend.register(UINib(nibName: "friendCell", bundle: nil), forCellReuseIdentifier: "friendCell")
-//        tableFriend.register(UINib(nibName: "friendCell", bundle: nil), forCellReuseIdentifier: "friendCell")
+        
+        self.resultSearchController = ({
+            let controller = UISearchController(searchResultsController: nil)
+            controller.searchResultsUpdater = self
+            controller.dimsBackgroundDuringPresentation = false
+            controller.searchBar.sizeToFit()
+            
+            self.tableFriend.tableHeaderView = controller.searchBar
+            
+            return controller
+        })()
+        self.tableFriend.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    //MARK: - Table Delegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animals.count
+        if (self.resultSearchController.isActive) {
+            return self.filteredFriendList.count
+        } else {
+            return self.friendList.count
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:friendCell = tableFriend.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
-        
-        cell.lblname.text = self.animals[indexPath.row]
-        return cell
+        if (self.resultSearchController.isActive) {
+            cell.lblname?.text = filteredFriendList[indexPath.row]
+            cell.btnAdd.setImage(UIImage(named: "addfriend"), for: UIControlState.normal)
+            return cell
+        }else{
+            //cell.backgroundColor = self.colors[indexPath.row]
+            cell.lblname.text = self.friendList[indexPath.row]
+            
+            return cell
+        }
     }
 
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        filteredFriendList.removeAll(keepingCapacity: false)
+        
+        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
+        let array = (friendList as NSArray).filtered(using: searchPredicate)
+        filteredFriendList = array as! [String]
+        
+        self.tableFriend.reloadData()
+    }
+    
 
 }
