@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 
 @UIApplicationMain
@@ -18,11 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var viewController = FriendViewController()
     let shareData = ShareData.sharedInstance
     let defaults = UserDefaults.standard
+    var locationManager = CLLocationManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        if(UserDefaults.standard.value(forKey: "pass") != nil){
+
+        if(UserDefaults.standard.value(forKey: "user") != nil){
             let rootVC = FriendViewController(nibName: "FriendViewController", bundle: nil)
             let nav = UINavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
