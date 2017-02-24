@@ -101,6 +101,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 DispatchQueue.main.async {
                     if(json.value(forKey: "resp") as! String == "Success"){
                       self.defaults.set(un , forKey: "user")
+                        Location()
                       self.navigationController?.pushViewController(HomeViewController(nibName: "HomeViewController", bundle: nil), animated: true)
                     }
                 }
