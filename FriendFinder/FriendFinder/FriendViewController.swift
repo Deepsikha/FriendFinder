@@ -1,20 +1,12 @@
-//
-//  FriendViewController.swift
-//  FriendFinder
-//
-//  Created by devloper65 on 2/22/17.
-//  Copyright © 2017 LaNet. All rights reserved.
-//
-
 import UIKit
 
 class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
-    var friendList = [String]()
-    var filteredFriendList = [String]()
+    var filteredFriendList: [AnyObject]! = []
     var resultSearchController = UISearchController()
     
     let defaults = UserDefaults.standard
-    var friendlist: NSMutableArray!
+    var friendlist: NSMutableArray! = []
+    
     var userdetail: NSDictionary!
     
   
@@ -22,6 +14,9 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fetchData()
+        
         if let name = defaults.string(forKey: "user")
         {
             print(name)
@@ -29,9 +24,9 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         }
 
         self.navigationController?.isNavigationBarHidden = true
-        tableFriend.delegate = self
-        tableFriend.dataSource = self
-        tableFriend.register(UINib(nibName: "friendCell", bundle: nil), forCellReuseIdentifier: "friendCell")
+        self.tableFriend.delegate = self
+        self.tableFriend.dataSource = self
+        self.tableFriend.register(UINib(nibName: "friendCell", bundle: nil), forCellReuseIdentifier: "friendCell")
         
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
@@ -52,36 +47,18 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
     func fetchData(){
         
         let parameters = ["username": defaults.string(forKey: "user")!] as Dictionary<String, String>
-        server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "user", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
+        server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "friends", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
             
         }, response_Dictionary: { (json) in
             
             
         }, response_Array: { (resultsArr) in
             DispatchQueue.main.async {
-                print(resultsArr)
-                self.userdetail = (resultsArr.object(at: 0) as AnyObject) as! NSDictionary
-//                self.lblUsername.text = "Username: " + (self.userdetail.value(forKey: "username") as? String)!
-//                self.lblName.text = "Name: " + (self.userdetail.value(forKey: "name") as? String)!
-//                self.lblAddress.text = "Address: " + (self.userdetail.value(forKey: "locality") as? String)!
-                
-            }
-        }, isTokenEmbeded: false)
-        
-        let parameters1 = ["username": defaults.string(forKey: "user")!] as Dictionary<String, String>
-        server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "friends", Request_parameter: parameters1, Request_parameter_Images: nil, status: { (result) in
-            
-        }, response_Dictionary: { (json) in
-            
-            
-        }, response_Array: { (resultsArr) in
-            DispatchQueue.main.async {
-                print(resultsArr)
                 self.friendlist = resultsArr
+                print(self.friendlist)
+                self.tableFriend.reloadData()
             }
         }, isTokenEmbeded: false)
-        //        switchTable(self)
-        
         
     }
 
@@ -94,19 +71,19 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         if (self.resultSearchController.isActive) {
             return self.filteredFriendList.count
         } else {
-            return self.friendList.count
+            return friendlist.count
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:friendCell = tableFriend.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
         if (self.resultSearchController.isActive) {
-            cell.lblname?.text = filteredFriendList[indexPath.row]
+            cell.lblname?.text = filteredFriendList[indexPath.row].value(forKey: "username") as? String
             cell.btnAdd.setImage(UIImage(named: "addfriend"), for: UIControlState.normal)
             return cell
         }else{
             //cell.backgroundColor = self.colors[indexPath.row]
-            cell.lblname.text = self.friendList[indexPath.row]
+           cell.lblname.text = (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "username") as? String
             
             return cell
         }
@@ -114,11 +91,11 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
 
     func updateSearchResults(for searchController: UISearchController) {
         
-        filteredFriendList.removeAll(keepingCapacity: false)
+        filteredFriendList.removeAll()
         
         let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        let array = (friendList as NSArray).filtered(using: searchPredicate)
-        filteredFriendList = array as! [String]
+        let array = (friendlist as AnyObject).filtered(using: searchPredicate) as [AnyObject]!
+        filteredFriendList = array
         
         self.tableFriend.reloadData()
     }
