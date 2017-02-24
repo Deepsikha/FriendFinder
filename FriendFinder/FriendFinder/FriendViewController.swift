@@ -60,9 +60,9 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
             DispatchQueue.main.async {
                 print(resultsArr)
                 self.userdetail = (resultsArr.object(at: 0) as AnyObject) as! NSDictionary
-                self.lblUsername.text = "Username: " + (self.userdetail.value(forKey: "username") as? String)!
-                self.lblName.text = "Name: " + (self.userdetail.value(forKey: "name") as? String)!
-                self.lblAddress.text = "Address: " + (self.userdetail.value(forKey: "locality") as? String)!
+//                self.lblUsername.text = "Username: " + (self.userdetail.value(forKey: "username") as? String)!
+//                self.lblName.text = "Name: " + (self.userdetail.value(forKey: "name") as? String)!
+//                self.lblAddress.text = "Address: " + (self.userdetail.value(forKey: "locality") as? String)!
                 
             }
         }, isTokenEmbeded: false)
