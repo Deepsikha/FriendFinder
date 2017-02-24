@@ -18,6 +18,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var submit: UIButton!
     @IBOutlet var NewAcc: UIButton!
     
+    var defaults = UserDefaults.standard
     var fetchedPerson: [Person] = []
     var filteredArray = [Person]()
     var valueSentFromSignUPPage:String?
@@ -37,7 +38,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         self.title = "LOG IN"
         self.navigationController?.navigationBar.isHidden = true
-        //label.font = label.font.withSize(20)
         let color = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         email.layer.borderColor = color.cgColor
         email.layer.borderWidth = 2
@@ -52,10 +52,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         pwd.backgroundColor = UIColor.lightGray
         
         submit.layer.cornerRadius = 8
-        
-        
-        //        Forward.frame = CGRectMake(100, 100, 50, 50)
-        //MyTableView.frame = CGRectMake(20, 50, 250, 400)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,12 +95,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             let un = self.email.text
             let parameters = ["username": un!, "password": pd!] as Dictionary<String, String>
             
-            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "fetchd", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
+            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "fetchd", Request_parameter: parameters, sRequest_parameter_Images: nil, status: { (result) in
                 
             }, response_Dictionary: { (json) in
                 DispatchQueue.main.async {
                     if(json.value(forKey: "resp") as! String == "Success"){
-                    self.navigationController?.pushViewController(FriendViewController(nibName: "FriendViewController", bundle: nil), animated: true)
+                        self.defaults.set(un , forKey: "user")
+                    self.navigationController?.pushViewController(HomeViewController(nibName: "HomeViewController", bundle: nil), animated: true)
                     }
                 }
 
