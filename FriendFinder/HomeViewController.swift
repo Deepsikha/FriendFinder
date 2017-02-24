@@ -60,3 +60,24 @@ class HomeViewController: UIViewController {
         return nil
     }
 }
+
+/*SELECT x.username,y.status FROM (
+SELECT users.username,users.user_id from users WHERE users.user_id IN (
+SELECT if(relationship.user_one_id != 10,
+relationship.user_one_id,
+if(relationship.user_two_id != 10,
+relationship.user_two_id,false)
+) from relationship where
+relationship.user_one_id = 10 OR relationship.user_two_id = 10
+)
+) as x
+INNER JOIN
+(
+SELECT if(relationship.user_one_id != 10,
+relationship.user_one_id,
+if(relationship.user_two_id != 10,
+relationship.user_two_id,false)
+) as id,relationship.status from relationship where
+relationship.user_one_id = 10 OR relationship.user_two_id = 10
+) as y
+ON x.user_id = y.id*/
