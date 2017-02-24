@@ -16,6 +16,7 @@
 		7D5DC8201E5D9D7C00247F63 /* FriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5DC81E1E5D9D7C00247F63 /* FriendViewController.xib */; };
 		7D5DC8231E5D9FF100247F63 /* friendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DC8211E5D9FF100247F63 /* friendCell.swift */; };
 		7D5DC8241E5D9FF100247F63 /* friendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5DC8221E5D9FF100247F63 /* friendCell.xib */; };
+		7D6B1F381E605EC800B0D132 /* tabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6B1F371E605EC800B0D132 /* tabBarController.swift */; };
 		7D6CBE551E5C09EE00435CB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE541E5C09EE00435CB1 /* AppDelegate.swift */; };
 		7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE561E5C09EE00435CB1 /* ViewController.swift */; };
 		7D6CBE5A1E5C09EE00435CB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE581E5C09EE00435CB1 /* Main.storyboard */; };
@@ -28,6 +29,10 @@
 		7D6CBE8C1E5C0AD900435CB1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */; };
 		7D6CBE8F1E5C0FB100435CB1 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE8D1E5C0FB100435CB1 /* SignUPViewController.swift */; };
 		7D6CBE921E5C2AFD00435CB1 /* SignUPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */; };
+		7DBB7D341E604EB60026BCBD /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB7D321E604EB60026BCBD /* mapViewController.swift */; };
+		7DBB7D351E604EB60026BCBD /* mapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DBB7D331E604EB60026BCBD /* mapViewController.xib */; };
+		7DBB7D381E6057790026BCBD /* friendInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB7D361E6057790026BCBD /* friendInfoViewController.swift */; };
+		7DBB7D391E6057790026BCBD /* friendInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DBB7D371E6057790026BCBD /* friendInfoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,7 @@
 		7D5DC81E1E5D9D7C00247F63 /* FriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendViewController.xib; path = FriendFinder/FriendViewController.xib; sourceTree = "<group>"; };
 		7D5DC8211E5D9FF100247F63 /* friendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = friendCell.swift; path = FriendFinder/friendCell.swift; sourceTree = "<group>"; };
 		7D5DC8221E5D9FF100247F63 /* friendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = friendCell.xib; path = FriendFinder/friendCell.xib; sourceTree = "<group>"; };
+		7D6B1F371E605EC800B0D132 /* tabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tabBarController.swift; path = FriendFinder/tabBarController.swift; sourceTree = "<group>"; };
 		7D6CBE511E5C09EE00435CB1 /* FriendFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6CBE541E5C09EE00435CB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D6CBE561E5C09EE00435CB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +81,10 @@
 		7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = FriendFinder/LoginViewController.xib; sourceTree = "<group>"; };
 		7D6CBE8D1E5C0FB100435CB1 /* SignUPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUPViewController.swift; path = FriendFinder/SignUPViewController.swift; sourceTree = "<group>"; };
 		7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUPViewController.xib; sourceTree = "<group>"; };
+		7DBB7D321E604EB60026BCBD /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mapViewController.swift; path = FriendFinder/mapViewController.swift; sourceTree = "<group>"; };
+		7DBB7D331E604EB60026BCBD /* mapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = mapViewController.xib; path = FriendFinder/mapViewController.xib; sourceTree = "<group>"; };
+		7DBB7D361E6057790026BCBD /* friendInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = friendInfoViewController.swift; path = FriendFinder/friendInfoViewController.swift; sourceTree = "<group>"; };
+		7DBB7D371E6057790026BCBD /* friendInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = friendInfoViewController.xib; path = FriendFinder/friendInfoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +115,11 @@
 		7D6CBE481E5C09EE00435CB1 = {
 			isa = PBXGroup;
 			children = (
+				7D6B1F371E605EC800B0D132 /* tabBarController.swift */,
+				7DBB7D361E6057790026BCBD /* friendInfoViewController.swift */,
+				7DBB7D371E6057790026BCBD /* friendInfoViewController.xib */,
+				7DBB7D321E604EB60026BCBD /* mapViewController.swift */,
+				7DBB7D331E604EB60026BCBD /* mapViewController.xib */,
 				5CEBEA451E5EAA7400736FB3 /* ShareData.swift */,
 				5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */,
 				7B334EC21E5DA7610092C639 /* HomeViewController.swift */,
@@ -283,7 +298,9 @@
 				7D6CBE8C1E5C0AD900435CB1 /* LoginViewController.xib in Resources */,
 				7D6CBE621E5C09EE00435CB1 /* LaunchScreen.storyboard in Resources */,
 				7D6CBE5F1E5C09EE00435CB1 /* Assets.xcassets in Resources */,
+				7DBB7D351E604EB60026BCBD /* mapViewController.xib in Resources */,
 				7D6CBE5A1E5C09EE00435CB1 /* Main.storyboard in Resources */,
+				7DBB7D391E6057790026BCBD /* friendInfoViewController.xib in Resources */,
 				7B334EC51E5DA7610092C639 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,10 +330,13 @@
 				5C26C0621E6040D20017A4F5 /* Location.swift in Sources */,
 				7D6CBE8B1E5C0AD900435CB1 /* LoginViewController.swift in Sources */,
 				7B334EC41E5DA7610092C639 /* HomeViewController.swift in Sources */,
+				7D6B1F381E605EC800B0D132 /* tabBarController.swift in Sources */,
 				5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */,
+				7DBB7D381E6057790026BCBD /* friendInfoViewController.swift in Sources */,
 				7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */,
 				7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */,
 				7D6CBE5D1E5C09EE00435CB1 /* FriendFinder.xcdatamodeld in Sources */,
+				7DBB7D341E604EB60026BCBD /* mapViewController.swift in Sources */,
 				7D6CBE551E5C09EE00435CB1 /* AppDelegate.swift in Sources */,
 				5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */,
 				7D5DC8231E5D9FF100247F63 /* friendCell.swift in Sources */,

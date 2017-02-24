@@ -3,7 +3,7 @@ import UIKit
 class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     var filteredFriendList: [AnyObject]! = []
     var resultSearchController = UISearchController()
-
+    
     let defaults = UserDefaults.standard
     var friendlist: NSMutableArray! = []
     
@@ -39,6 +39,8 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
             return controller
         })()
         self.tableFriend.reloadData()
+        
+        
     }
 
     //MARK: - Fetching Data

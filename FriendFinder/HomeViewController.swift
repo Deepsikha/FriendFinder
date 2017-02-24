@@ -3,7 +3,6 @@ import MapKit
 
 class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
 
-    @IBOutlet var lblName: UILabel!
     @IBOutlet var mapCurrentLocation: MKMapView!
     @IBOutlet var lblAddress: UILabel!
     @IBOutlet var lblUsername: UILabel!
@@ -18,7 +17,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
         super.viewDidLoad()
         Location()
         self.navigationController?.isNavigationBarHidden = true
-        
+
         mapCurrentLocation.layer.cornerRadius = mapCurrentLocation.frame.height / 2
         imgProfile.image = genQRCode()
         fetchData()
@@ -52,7 +51,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
+
     }
     
     func fetchData(){
@@ -67,6 +66,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
             DispatchQueue.main.async {
                 print(resultsArr)
                 self.userdetail = (resultsArr.object(at: 0) as AnyObject) as! NSDictionary
+
                 self.lblUsername.text = "Username: " + (self.userdetail.value(forKey: "username") as? String)!
                 self.lblName.text = (self.userdetail.value(forKey: "name") as? String)!
                 self.lblAddress.text = (self.userdetail.value(forKey: "locality") as? String)!
