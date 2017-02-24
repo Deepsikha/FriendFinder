@@ -13,10 +13,13 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
     var filteredFriendList = [String]()
     var resultSearchController = UISearchController()
 
-    var animals: [String] = ["Horse", "Cow", "Camel", "Sheep", "Goat"]
-    var defaults = UserDefaults.standard
-    @IBOutlet var barSearch: UISearchBar!
+    let defaults = UserDefaults.standard
+    var friendlist: NSMutableArray!
+    var userdetail: NSDictionary!
+    
+  
     @IBOutlet var tableFriend: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let name = defaults.string(forKey: "user")
@@ -24,11 +27,6 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
             print(name)
             
         }
-
-    @IBOutlet var tableFriend: UITableView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        friendList = ["dev_76","dev_30","dev_62"]
 
         self.navigationController?.isNavigationBarHidden = true
         tableFriend.delegate = self
@@ -46,6 +44,43 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
             return controller
         })()
         self.tableFriend.reloadData()
+    }
+
+    //MARK: - Fetching Data
+    func fetchData(){
+        
+        let parameters = ["username": defaults.string(forKey: "user")!] as Dictionary<String, String>
+        server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "user", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
+            
+        }, response_Dictionary: { (json) in
+            
+            
+        }, response_Array: { (resultsArr) in
+            DispatchQueue.main.async {
+                print(resultsArr)
+                self.userdetail = (resultsArr.object(at: 0) as AnyObject) as! NSDictionary
+//                self.lblUsername.text = "Username: " + (self.userdetail.value(forKey: "username") as? String)!
+//                self.lblName.text = "Name: " + (self.userdetail.value(forKey: "name") as? String)!
+//                self.lblAddress.text = "Address: " + (self.userdetail.value(forKey: "locality") as? String)!
+                
+            }
+        }, isTokenEmbeded: false)
+        
+        let parameters1 = ["username": defaults.string(forKey: "user")!] as Dictionary<String, String>
+        server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "friends", Request_parameter: parameters1, Request_parameter_Images: nil, status: { (result) in
+            
+        }, response_Dictionary: { (json) in
+            
+            
+        }, response_Array: { (resultsArr) in
+            DispatchQueue.main.async {
+                print(resultsArr)
+                self.friendlist = resultsArr
+            }
+        }, isTokenEmbeded: false)
+        //        switchTable(self)
+        
+        
     }
 
     //MARK: - Table Delegate
