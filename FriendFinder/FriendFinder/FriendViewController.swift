@@ -12,11 +12,12 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
     var friendList = [String]()
     var filteredFriendList = [String]()
     var resultSearchController = UISearchController()
+
     let defaults = UserDefaults.standard
     var friendlist: NSMutableArray!
     var userdetail: NSDictionary!
     
-    @IBOutlet var barSearch: UISearchBar!
+  
     @IBOutlet var tableFriend: UITableView!
     
     override func viewDidLoad() {
@@ -26,8 +27,6 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
             print(name)
             
         }
-
-        friendList = ["dev_76","dev_30","dev_62"]
 
         self.navigationController?.isNavigationBarHidden = true
         tableFriend.delegate = self
