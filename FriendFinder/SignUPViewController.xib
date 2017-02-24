@@ -16,6 +16,7 @@
                 <outlet property="cty" destination="KDk-hP-MMY" id="CKC-23-f7a"/>
                 <outlet property="firstname" destination="zSY-SN-q5Q" id="p1k-uR-vD3"/>
                 <outlet property="lastname" destination="ze4-Oh-2hT" id="rgU-yy-xgn"/>
+                <outlet property="lbl1" destination="U2p-22-XC3" id="Xh8-43-mLm"/>
                 <outlet property="pwd" destination="8r6-8D-wvb" id="o3s-Ac-by7"/>
                 <outlet property="pwd1" destination="Mrp-8s-mpo" id="nAZ-Gl-SCN"/>
                 <outlet property="username" destination="fjg-vr-LRs" id="gdD-a3-M97"/>
@@ -113,10 +114,27 @@
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <connections>
+                        <action selector="pwd:" destination="-1" eventType="editingChanged" id="18J-Af-rgc"/>
+                    </connections>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Strength :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9C-9H-sHm">
+                    <rect key="frame" x="139" y="276" width="80" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2p-22-XC3">
+                    <rect key="frame" x="220" y="276" width="84" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="26.5" y="51.5"/>
+            <point key="canvasLocation" x="26" y="51"/>
         </view>
     </objects>
 </document>
