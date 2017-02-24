@@ -11,6 +11,8 @@ import UIKit
 
 class SignUPViewController: UIViewController {
     
+        @IBOutlet var city: UITextField!
+        @IBOutlet var cty: UILabel!
         @IBOutlet var firstname: UITextField!
         @IBOutlet var lastname: UITextField!
         @IBOutlet var username: UITextField!
@@ -30,7 +32,7 @@ class SignUPViewController: UIViewController {
         //MARK: - Button Action
         @IBAction func signUPAction(_ sender: UIButton) {
             
-            if self.firstname.text!.isEmpty || self.lastname.text!.isEmpty || self.username.text!.isEmpty || self.pwd.text!.isEmpty || self.pwd1.text!.isEmpty {
+            if self.firstname.text!.isEmpty || self.lastname.text!.isEmpty || self.username.text!.isEmpty || self.pwd.text!.isEmpty || self.pwd1.text!.isEmpty || self.city.text!.isEmpty {
                 let alt = UIAlertController(title: "Enter Value", message: "All Fields are Mandatory", preferredStyle: UIAlertControllerStyle.alert)
                 alt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
                 self.present(alt, animated: true, completion: nil)
@@ -40,11 +42,8 @@ class SignUPViewController: UIViewController {
                 alt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
                 self.present(alt, animated: true, completion: nil)
             }else {
-                _ = self.firstname.text
-            }
-            
-            let parameters = ["name": self.firstname.text!,"surname": self.lastname.text!,"username": self.username.text!,"password": self.pwd.text!]
-                
+                let nm = self.firstname.text?.appending(self.lastname.text!)
+                let parameters = ["name": nm!,"username": self.username.text!,"password": self.pwd.text!,"locality": self.city.text!]
                 server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "reg", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
                 
             }, response_Dictionary: { (json) in
@@ -68,6 +67,7 @@ class SignUPViewController: UIViewController {
             }, response_Array: { (resultsArr) in
                 
             }, isTokenEmbeded: false)
+            }
             
             
         }
