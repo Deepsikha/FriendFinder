@@ -11,6 +11,7 @@ import UIKit
 
 class SignUPViewController: UIViewController {
     
+    @IBOutlet var lbl1: UILabel!
         @IBOutlet var city: UITextField!
         @IBOutlet var cty: UILabel!
         @IBOutlet var firstname: UITextField!
@@ -28,7 +29,60 @@ class SignUPViewController: UIViewController {
             btnsubmit.layer.cornerRadius = 8
             
         }
+    
+    enum PasswordStrength: Int {
+        case None
+        case Weak
+        case Moderate
+        case Strong
         
+        static func checkStrength(password: String) -> PasswordStrength {
+            let len: Int = password.characters.count
+            var strength: Int = 0
+            
+            switch len {
+            case 0:
+                return .None
+            case 1...4:
+                strength = strength+1
+            case 5...8:
+                strength += 2
+            default:
+                strength += 3
+            }
+            
+            // Upper case, Lower case, Number & Symbols
+            let patterns = ["^(?=.*[A-Z]).*$", "^(?=.*[a-z]).*$", "^(?=.*[0-9]).*$", "^(?=.*[!@#%&-_=:;\"'<>,`~\\*\\?\\+\\[\\]\\(\\)\\{\\}\\^\\$\\|\\\\\\.\\/]).*$"]
+            
+            for pattern in patterns {
+                if (password.range(of: pattern, options: .regularExpression) != nil) {
+                    strength = strength+1
+                }
+            }
+            
+            switch strength {
+            case 0:
+                return .None
+            case 1...3:
+                return .Weak
+            case 4...6:
+                return .Moderate
+            default:
+                return .Strong
+            }
+        }
+    }
+    
+    
+    @IBAction func pwd(_ sender: Any) {
+        let abc = String(describing: PasswordStrength.checkStrength(password: pwd.text!))
+        print(abc)
+        check(abc)
+    }
+    func check(_ pass : String){
+        lbl1.text = pass
+    }
+    
         //MARK: - Button Action
         @IBAction func signUPAction(_ sender: UIButton) {
             
@@ -42,7 +96,7 @@ class SignUPViewController: UIViewController {
                 alt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
                 self.present(alt, animated: true, completion: nil)
             }else {
-                let nm = self.firstname.text?.appending(self.lastname.text!)
+                let nm = self.firstname.text?.appending(" ").appending(self.lastname.text!)
                 let parameters = ["name": nm!,"username": self.username.text!,"password": self.pwd.text!,"locality": self.city.text!]
                 server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "reg", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
                 

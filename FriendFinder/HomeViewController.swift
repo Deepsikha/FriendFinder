@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Location()
         self.navigationController?.isNavigationBarHidden = true
         
         mapCurrentLocation.layer.cornerRadius = mapCurrentLocation.frame.height / 2

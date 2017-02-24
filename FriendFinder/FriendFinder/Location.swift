@@ -17,14 +17,13 @@ class Location : NSObject, CLLocationManagerDelegate{
     super.init()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        locationManager.distanceFilter = 150.0
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 150
         locationManager.startUpdatingLocation()
     }
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation])
     {
-        
         let lat = String(describing: locationManager.location?.coordinate.latitude)
         let long = String(describing: locationManager.location?.coordinate.longitude)
         let location = lat.appending(",").appending(long)
