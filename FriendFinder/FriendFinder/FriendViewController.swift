@@ -12,7 +12,7 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
     var friendList = [String]()
     var filteredFriendList = [String]()
     var resultSearchController = UISearchController()
-
+    
     let defaults = UserDefaults.standard
     var friendlist: NSMutableArray!
     var userdetail: NSDictionary!
@@ -44,6 +44,8 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
             return controller
         })()
         self.tableFriend.reloadData()
+        
+        
     }
 
     //MARK: - Fetching Data
