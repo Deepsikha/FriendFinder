@@ -28,16 +28,8 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
         locManager.requestWhenInUseAuthorization()
         locManager.startUpdatingLocation()
         print(locManager.location!)
-        let a = locManager.location!.coordinate.latitude
-        let b = locManager.location!.coordinate.longitude
-        
-        let location = CLLocationCoordinate2DMake(a,b)
-        let annotation = MKPointAnnotation()
+
         mapCurrentLocation.delegate = self
-        mapCurrentLocation.removeAnnotation(annotation as MKAnnotation)
-        annotation.coordinate = location
-        annotation.title = "Current Location"
-        mapCurrentLocation.addAnnotation(annotation)
         
         mapCurrentLocation.isScrollEnabled = false
         
