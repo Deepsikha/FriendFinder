@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     let defaults = UserDefaults.standard
     var locationManager = CLLocationManager()
     var location : String!
-    var user = String(describing: UserDefaults.standard.value(forKey: "user")!)
+    var user: String?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -31,9 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 150.0
         locationManager.startUpdatingLocation()
-        
 
+        if let u1 = UserDefaults.standard.value(forKey: "user") {
+            user = String(describing: u1)
+        }
+        
         if(UserDefaults.standard.value(forKey: "user") != nil){
+            
             let rootVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
            let nav = UINavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
@@ -58,8 +62,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         let currentLongitude = String(describing: (locationManager.location?.coordinate.longitude)!)
         location = currentLatitude.appending(",").appending(currentLongitude)
         
-        if(user != ""){
-        let parameters = ["username": user,"location": location!]
+        
+        
+        if(user != nil){
+        let parameters = ["username": user!,"location": location!]
             print("updated")
             server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "loc", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
             
