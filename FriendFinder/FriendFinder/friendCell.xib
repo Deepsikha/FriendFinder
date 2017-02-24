@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i6f-qE-Otz">
-                        <rect key="frame" x="6" y="0.0" width="43" height="43"/>
+                        <rect key="frame" x="6" y="1" width="44" height="44"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fx0-LQ-jyt">
@@ -30,21 +30,28 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ser-tW-RRZ">
-                        <rect key="frame" x="281" y="4" width="35" height="35"/>
+                        <rect key="frame" x="283" y="11" width="21" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="addfriend"/>
+                        <connections>
+                            <action selector="btnAddAction:" destination="KGk-i7-Jjw" eventType="touchDown" id="Lc4-H3-6ZP"/>
+                            <action selector="btnAddAction:" destination="-2" eventType="touchUpInside" id="sg5-aI-o4x"/>
+                        </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0px-V1-WZx">
+                        <rect key="frame" x="13" y="11" width="29" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btnAddRemove" destination="Ser-tW-RRZ" id="wE4-br-LVJ"/>
+                <outlet property="btnAdd" destination="Ser-tW-RRZ" id="pjM-4R-hJa"/>
                 <outlet property="imageProfile" destination="i6f-qE-Otz" id="UVP-Hc-NDw"/>
                 <outlet property="lblname" destination="Fx0-LQ-jyt" id="0By-cy-jxV"/>
             </connections>
             <point key="canvasLocation" x="-428" y="176"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="addfriend" width="100" height="100"/>
-    </resources>
 </document>

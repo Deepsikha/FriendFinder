@@ -25,17 +25,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 150.0
         locationManager.startUpdatingLocation()
         
+
         if(UserDefaults.standard.value(forKey: "user") != nil){
-            
-            
-            let rootVC = FriendViewController(nibName: "FriendViewController", bundle: nil)
-            let nav = UINavigationController(rootViewController: rootVC)
+            let rootVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+           let nav = UINavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()
             return true

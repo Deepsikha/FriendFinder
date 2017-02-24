@@ -95,13 +95,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             let un = self.email.text
             let parameters = ["username": un!, "password": pd!] as Dictionary<String, String>
             
-            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "fetchd", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
+            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "fetchd", Request_parameter: parameters, sRequest_parameter_Images: nil, status: { (result) in
                 
             }, response_Dictionary: { (json) in
                 DispatchQueue.main.async {
                     if(json.value(forKey: "resp") as! String == "Success"){
-                        self.defaults.set(un, forKey: "user")
-                    self.navigationController?.pushViewController(FriendViewController(nibName: "FriendViewController", bundle: nil), animated: true)
+                      self.defaults.set(un , forKey: "user")
+                      self.navigationController?.pushViewController(HomeViewController(nibName: "HomeViewController", bundle: nil), animated: true)
                     }
                 }
 
