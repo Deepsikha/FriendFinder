@@ -84,7 +84,8 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
         
     }
     @IBAction func Friends(_ sender: Any) {
-        self.navigationController?.pushViewController(FriendViewController(), animated: true)
+        UserDefaults.standard.removeObject(forKey: "user")
+        self.navigationController?.pushViewController(LoginViewController(), animated: true)
     }
     func genQRCode() -> UIImage? {
         let data = (defaults.value(forKey: "user")as! String).data(using: String.Encoding.ascii)

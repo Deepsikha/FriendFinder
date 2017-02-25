@@ -48,7 +48,7 @@
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W87-Bp-HEZ">
                             <rect key="frame" x="331" y="0.0" width="51" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Friends"/>
+                            <state key="normal" title="Logout"/>
                             <connections>
                                 <action selector="Friends:" destination="-1" eventType="touchDown" id="40F-Hq-Wf8"/>
                             </connections>
