@@ -16,6 +16,7 @@ class friendCell: UITableViewCell {
     var data: [AnyObject]!
     var session: URLSession!
     var task: URLSessionDataTask!
+    var status: Int!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,38 +27,34 @@ class friendCell: UITableViewCell {
         imageProfile.layer.masksToBounds = true
         imageProfile.layer.borderColor = UIColor.black.cgColor
         imageProfile.layer.cornerRadius = imageProfile.frame.size.height / 2
+        
     }
-        func reloadTable(){
-            let url:URL! = URL(string: "http://127.0.0.1:8085/chkFnd")
-            task = session.dataTask(with: url, completionHandler: { (location: Data?, response: URLResponse?, error: Error?) -> Void in
-                if location != nil{
-                    let data:Data! = location!
-                    do{
-                        let dic = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as AnyObject
-                        print(dic)
-                        self.data = dic.value(forKey : "data") as? [AnyObject]
-                        DispatchQueue.main.async(execute: { () -> Void in
-//                            self.tblView.reloadData()
-//                            self.refresh?.endRefreshing()
-                            if self.data[0] as! Decimal == 1 {
-                                self.btnAdd.setImage(UIImage(named: "addfriend"), for: .normal)
-                            }else {
-                                self.btnAdd.setImage(UIImage(named: "removefriend"), for: .normal)
-                            }
-                        })
-                    }catch{
-                        //print("something went wrong, try again")
+    func reloadTable(_ user_id: String){
+            let parameters:[String:String]? = ["username": UserDefaults.standard.value(forKey: "user") as! String,"user_id":user_id]
+            
+            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "chkRelation", Request_parameter: parameters, Request_parameter_Images: nil, status: {(result) in
+            }, response_Dictionary: { (json) in
+                DispatchQueue.main.async {
+                    if json.value(forKey: "resp") as! String == "friends" {
+                        self.btnAdd.setImage(UIImage(named: "removefriend"), for: .normal)
+                        self.status = 1
+                    }else if json.value(forKey: "resp") as! String == "not" {
+                        self.btnAdd.setImage(UIImage(named: "addfriend"), for: .normal)
+                        self.status = 0
+                    }else{
+                        self.btnAdd.setImage(UIImage(named: "blank"), for: .normal)
+                        self.btnAdd.isEnabled = false
                     }
                 }
-            })
-            task.resume()
+            }, response_Array: { (resultArr) in
+                
+            }, isTokenEmbeded: false)
         }
         
 
 
     @IBAction func btnAddAction(_ sender: UIButton) {
-        btnAdd.setImage(UIImage(named: "removefriend"), for: .normal)
-        reloadTable()
+        print(status)
     }
     
 }
