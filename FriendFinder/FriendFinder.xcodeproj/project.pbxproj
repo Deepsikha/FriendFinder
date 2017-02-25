@@ -10,8 +10,8 @@
 		5C26C0621E6040D20017A4F5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26C0611E6040D20017A4F5 /* Location.swift */; };
 		5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */; };
 		5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBEA451E5EAA7400736FB3 /* ShareData.swift */; };
-		7B334EC41E5DA7610092C639 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B334EC21E5DA7610092C639 /* HomeViewController.swift */; };
-		7B334EC51E5DA7610092C639 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B334EC31E5DA7610092C639 /* HomeViewController.xib */; };
+		7D0432591E61444F008CB872 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0432571E61444F008CB872 /* HomeViewController.swift */; };
+		7D04325A1E61444F008CB872 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0432581E61444F008CB872 /* HomeViewController.xib */; };
 		7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */; };
 		7D5DC8201E5D9D7C00247F63 /* FriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5DC81E1E5D9D7C00247F63 /* FriendViewController.xib */; };
 		7D5DC8231E5D9FF100247F63 /* friendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DC8211E5D9FF100247F63 /* friendCell.swift */; };
@@ -56,8 +56,8 @@
 		5C26C0611E6040D20017A4F5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "REST-Api.swift"; sourceTree = "<group>"; };
 		5CEBEA451E5EAA7400736FB3 /* ShareData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
-		7B334EC21E5DA7610092C639 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		7B334EC31E5DA7610092C639 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		7D0432571E61444F008CB872 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = FriendFinder/HomeViewController.swift; sourceTree = "<group>"; };
+		7D0432581E61444F008CB872 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = FriendFinder/HomeViewController.xib; sourceTree = "<group>"; };
 		7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendViewController.swift; path = FriendFinder/FriendViewController.swift; sourceTree = "<group>"; };
 		7D5DC81E1E5D9D7C00247F63 /* FriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendViewController.xib; path = FriendFinder/FriendViewController.xib; sourceTree = "<group>"; };
 		7D5DC8211E5D9FF100247F63 /* friendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = friendCell.swift; path = FriendFinder/friendCell.swift; sourceTree = "<group>"; };
@@ -115,6 +115,8 @@
 		7D6CBE481E5C09EE00435CB1 = {
 			isa = PBXGroup;
 			children = (
+				7D0432571E61444F008CB872 /* HomeViewController.swift */,
+				7D0432581E61444F008CB872 /* HomeViewController.xib */,
 				7D6B1F371E605EC800B0D132 /* tabBarController.swift */,
 				7DBB7D361E6057790026BCBD /* friendInfoViewController.swift */,
 				7DBB7D371E6057790026BCBD /* friendInfoViewController.xib */,
@@ -122,8 +124,6 @@
 				7DBB7D331E604EB60026BCBD /* mapViewController.xib */,
 				5CEBEA451E5EAA7400736FB3 /* ShareData.swift */,
 				5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */,
-				7B334EC21E5DA7610092C639 /* HomeViewController.swift */,
-				7B334EC31E5DA7610092C639 /* HomeViewController.xib */,
 				7D5DC8211E5D9FF100247F63 /* friendCell.swift */,
 				7D5DC8221E5D9FF100247F63 /* friendCell.xib */,
 				7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */,
@@ -299,9 +299,9 @@
 				7D6CBE621E5C09EE00435CB1 /* LaunchScreen.storyboard in Resources */,
 				7D6CBE5F1E5C09EE00435CB1 /* Assets.xcassets in Resources */,
 				7DBB7D351E604EB60026BCBD /* mapViewController.xib in Resources */,
+				7D04325A1E61444F008CB872 /* HomeViewController.xib in Resources */,
 				7D6CBE5A1E5C09EE00435CB1 /* Main.storyboard in Resources */,
 				7DBB7D391E6057790026BCBD /* friendInfoViewController.xib in Resources */,
-				7B334EC51E5DA7610092C639 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,9 +329,9 @@
 				7D6CBE8F1E5C0FB100435CB1 /* SignUPViewController.swift in Sources */,
 				5C26C0621E6040D20017A4F5 /* Location.swift in Sources */,
 				7D6CBE8B1E5C0AD900435CB1 /* LoginViewController.swift in Sources */,
-				7B334EC41E5DA7610092C639 /* HomeViewController.swift in Sources */,
 				7D6B1F381E605EC800B0D132 /* tabBarController.swift in Sources */,
 				5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */,
+				7D0432591E61444F008CB872 /* HomeViewController.swift in Sources */,
 				7DBB7D381E6057790026BCBD /* friendInfoViewController.swift in Sources */,
 				7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */,
 				7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */,
