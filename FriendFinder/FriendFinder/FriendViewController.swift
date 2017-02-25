@@ -79,12 +79,13 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         let cell:friendCell = tableFriend.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
         if (self.resultSearchController.isActive) {
             cell.lblname?.text = filteredFriendList[indexPath.row].value(forKey: "username") as? String
-            cell.btnAdd.setImage(UIImage(named: "addfriend"), for: UIControlState.normal)
+            
+            cell.reloadTable(String(describing: filteredFriendList[indexPath.row].value(forKey: "user_id")!))
             return cell
         }else{
             //cell.backgroundColor = self.colors[indexPath.row]
            cell.lblname.text = (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "username") as? String
-            
+            cell.reloadTable(String(describing: (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "user_id")!))
             return cell
         }
     }
@@ -93,11 +94,19 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         filteredFriendList.removeAll()
         
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        let array = (friendlist as AnyObject).filtered(using: searchPredicate) as [AnyObject]!
-        filteredFriendList = array
+        let parameters:[String:String] = ["searchTerm":searchController.searchBar.text!]
+        server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "searchUser", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
+            
+        }, response_Dictionary: { (json) in
+            
+        }, response_Array: { (resultarr) in
+            DispatchQueue.main.async {
+                self.filteredFriendList = resultarr as [AnyObject]
+                print(self.filteredFriendList)
+                self.tableFriend.reloadData()
+            }
+        }, isTokenEmbeded: false)
         
-        self.tableFriend.reloadData()
     }
     
 
