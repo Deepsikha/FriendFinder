@@ -1,17 +1,9 @@
-//
-//  friendInfoViewController.swift
-//  FriendFinder
-//
-//  Created by devloper65 on 2/24/17.
-//  Copyright © 2017 LaNet. All rights reserved.
-//
-
 import UIKit
 import MapKit
 
-class friendInfoViewController: UIViewController {
+class friendInfoViewController: UIViewController,MKMapViewDelegate {
     
-    @IBOutlet var mapCurrentLocation: MKMapView!
+    @IBOutlet var map: MKMapView!
     @IBOutlet var lblAddress: UILabel!
     @IBOutlet var lblUsername: UILabel!
     @IBOutlet var imgProfile: UIImageView!
@@ -21,16 +13,19 @@ class friendInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-        mapCurrentLocation.layer.cornerRadius = mapCurrentLocation.frame.size.height/2
         
+        self.navigationController?.isNavigationBarHidden = true
+        
+        map.layer.cornerRadius = map.frame.height / 2
+        map.delegate = self
+        fetchData()
         
         lblLocate.text = "\(lblUsername)'s recent Location"
         
     }
     
     func fetchData(){
-        
+        print(username)
         let parameters = ["username": username] as Dictionary<String, String>
         server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "user", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
             
@@ -47,11 +42,11 @@ class friendInfoViewController: UIViewController {
                 
                 let latlng = location.components(separatedBy: ",")
                 
-                let anno = MKPointAnnotation()
-                anno.coordinate = CLLocationCoordinate2DMake(Double(latlng[0])! ,Double(latlng[1])!)
-                self.mapCurrentLocation.removeAnnotation(anno as MKAnnotation)
-                anno.title = "Current Location"
-                self.mapCurrentLocation.addAnnotation(anno)
+//                let anno = MKPointAnnotation()
+//                anno.coordinate = CLLocationCoordinate2DMake(Double(latlng[0])! ,Double(latlng[1])!)
+//                self.mapCurrentLocation.removeAnnotation(anno as MKAnnotation)
+//                anno.title = "Current Location"
+//                self.mapCurrentLocation.addAnnotation(anno)
                 
             }
         }, isTokenEmbeded: false)
