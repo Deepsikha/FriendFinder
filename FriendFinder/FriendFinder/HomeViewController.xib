@@ -13,8 +13,8 @@
             <connections>
                 <outlet property="imgProfile" destination="vcW-zO-n6R" id="D5n-uG-Qmz"/>
                 <outlet property="lblAddress" destination="F4U-ff-1ji" id="6Uj-AT-E7N"/>
-                <outlet property="lblUsername" destination="HlS-pO-duY" id="k7s-rO-Igv"/>
-                <outlet property="mapCurrentLocation" destination="Pdy-B3-jWB" id="oxE-sm-2fP"/>
+                <outlet property="lblUsername" destination="QKy-ZF-Px0" id="1kZ-qV-ae8"/>
+                <outlet property="mapCurrentLocation" destination="mXR-3W-LU3" id="bBE-Iw-Qxr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
