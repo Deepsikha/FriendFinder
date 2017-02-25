@@ -84,17 +84,18 @@ class SignUPViewController: UIViewController {
     }
     
         //MARK: - Button Action
-        @IBAction func signUPAction(_ sender: UIButton) {
+    @IBAction func signUPAction(_ sender: UIButton) {
             
-            if self.firstname.text!.isEmpty || self.lastname.text!.isEmpty || self.username.text!.isEmpty || self.pwd.text!.isEmpty || self.pwd1.text!.isEmpty || self.city.text!.isEmpty {
+        if self.firstname.text!.isEmpty || self.lastname.text!.isEmpty || self.username.text!.isEmpty || self.pwd.text!.isEmpty || self.pwd1.text!.isEmpty || self.city.text!.isEmpty {
                 let alt = UIAlertController(title: "Enter Value", message: "All Fields are Mandatory", preferredStyle: UIAlertControllerStyle.alert)
                 alt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
                 self.present(alt, animated: true, completion: nil)
                 
-            }else if pwd.text != pwd1.text{
-                let alt = UIAlertController(title: "Confirm Password", message: "Password Can't match, Enter Same Password", preferredStyle: UIAlertControllerStyle.alert)
-                alt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
-                self.present(alt, animated: true, completion: nil)
+        }else if pwd.text != pwd1.text{
+            
+            let alt = UIAlertController(title: "Confirm Password", message: "Password Can't match, Enter Same Password", preferredStyle: UIAlertControllerStyle.alert)
+            alt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alt, animated: true, completion: nil)
             }else {
                 let nm = self.firstname.text?.appending(" ").appending(self.lastname.text!)
                 let parameters = ["name": nm!,"username": self.username.text!,"password": self.pwd.text!,"locality": self.city.text!]
@@ -126,6 +127,10 @@ class SignUPViewController: UIViewController {
             
         }
     
+    @IBAction func btnBackAction(_ sender: UIButton) {
+        self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
+    }
+
 }
 
     
