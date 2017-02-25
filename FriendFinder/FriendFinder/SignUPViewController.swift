@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import GooglePlaces
 
 
-class SignUPViewController: UIViewController {
-    
+class SignUPViewController: UIViewController,GMSAutocompleteViewControllerDelegate {
+
     @IBOutlet var lbl1: UILabel!
         @IBOutlet var city: UITextField!
         @IBOutlet var cty: UILabel!
@@ -21,14 +22,14 @@ class SignUPViewController: UIViewController {
         @IBOutlet var pwd1: UITextField!
         @IBOutlet var btnsubmit: UIButton!
         var TableData:Array< String > = Array < String >()
-    
+   
         override func viewDidLoad() {
             super.viewDidLoad()
             self.title = "SIGN UP"
             self.navigationController?.navigationBar.isHidden = true
             btnsubmit.layer.cornerRadius = 8
-            
-        }
+                }
+    
     
     enum PasswordStrength: Int {
         case None
@@ -74,6 +75,13 @@ class SignUPViewController: UIViewController {
     }
     
     
+    @IBAction func auto(_ sender: Any) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func pwd(_ sender: Any) {
         let abc = String(describing: PasswordStrength.checkStrength(password: pwd.text!))
         print(abc)
@@ -83,7 +91,12 @@ class SignUPViewController: UIViewController {
         lbl1.text = pass
     }
     
-        //MARK: - Button Action
+    
+    @IBAction func bck(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
+
         @IBAction func signUPAction(_ sender: UIButton) {
             
             if self.firstname.text!.isEmpty || self.lastname.text!.isEmpty || self.username.text!.isEmpty || self.pwd.text!.isEmpty || self.pwd1.text!.isEmpty || self.city.text!.isEmpty {
@@ -98,6 +111,7 @@ class SignUPViewController: UIViewController {
             }else {
                 let nm = self.firstname.text?.appending(" ").appending(self.lastname.text!)
                 let parameters = ["name": nm!,"username": self.username.text!,"password": self.pwd.text!,"locality": self.city.text!]
+                print(self.city.text!)
                 server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "reg", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
                 
             }, response_Dictionary: { (json) in
@@ -125,7 +139,38 @@ class SignUPViewController: UIViewController {
             
             
         }
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        city.text = place.name
+        print("Place name: \(place.name)")
+        print("Place address: \(place.formattedAddress)")
+        print("Place attributions: \(place.attributions)")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+
     
 }
+
+
+
+
 
     

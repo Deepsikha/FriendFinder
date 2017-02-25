@@ -8,7 +8,7 @@
 
 import UIKit
 
-class tabBarController: UITabBarController,UITabBarControllerDelegate {
+class tabbar: UITabBarController,UITabBarControllerDelegate {
 
     var tab1: HomeViewController!
     var tab2: FriendViewController!
@@ -18,6 +18,14 @@ class tabBarController: UITabBarController,UITabBarControllerDelegate {
         super.viewDidLoad()
         
         self.delegate = delegate
+    }
+    
+    override func viewWillLayoutSubviews() {
+        var tabFrame = self.tabBar.frame
+        
+        tabFrame.size.height = 60
+        tabFrame.origin.y = self.view.frame.size.height - 60
+        self.tabBar.frame = tabFrame
     }
     
     override func viewWillAppear(_ animated: Bool) {
