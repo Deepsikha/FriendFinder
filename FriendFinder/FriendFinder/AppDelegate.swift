@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CoreLocation
+import GooglePlaces
 
 
 @UIApplicationMain
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        GMSPlacesClient.provideAPIKey("AIzaSyDt2T1bFK6sowqk4WH_ZOA0v-tl115jnQg")
 
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
@@ -78,7 +80,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         else{
         print("Username is empty")
         }
-        
     }
     
     func locationManager(_ manager: CLLocationManager,
