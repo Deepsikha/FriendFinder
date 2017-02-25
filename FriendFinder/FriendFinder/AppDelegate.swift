@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         
         if(UserDefaults.standard.value(forKey: "user") != nil){
             
-            let rootVC = tabBarController()
+            let rootVC = tabbar()
            let nav = UINavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()

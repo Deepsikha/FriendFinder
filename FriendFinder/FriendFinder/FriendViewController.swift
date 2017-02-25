@@ -94,11 +94,19 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         filteredFriendList.removeAll()
         
-        let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text!)
-        let array = (friendlist as AnyObject).filtered(using: searchPredicate) as [AnyObject]!
-        filteredFriendList = array
+        let parameters:[String:String] = ["searchTerm":searchController.searchBar.text!]
+        server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "searchUser", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
+            
+        }, response_Dictionary: { (json) in
+            
+        }, response_Array: { (resultarr) in
+            DispatchQueue.main.async {
+                self.filteredFriendList = resultarr as [AnyObject]
+                print(self.filteredFriendList)
+                self.tableFriend.reloadData()
+            }
+        }, isTokenEmbeded: false)
         
-        self.tableFriend.reloadData()
     }
     
 

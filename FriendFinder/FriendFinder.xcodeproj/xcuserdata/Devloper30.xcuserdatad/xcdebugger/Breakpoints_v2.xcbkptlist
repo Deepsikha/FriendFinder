@@ -52,7 +52,7 @@
                   moduleName = "FriendFinder"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/itilak/Desktop/FriendFinder/FriendFinder/FriendFinder/FriendViewController.swift"
-                  timestampString = "509698394.392033"
+                  timestampString = "509702844.302217"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "55"
@@ -67,11 +67,11 @@
                   moduleName = "FriendFinder"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/itilak/Desktop/FriendFinder/FriendFinder/FriendFinder/FriendViewController.swift"
-                  timestampString = "509698394.398438"
+                  timestampString = "509702844.310108"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
