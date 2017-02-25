@@ -14,7 +14,7 @@
                 <outlet property="imgProfile" destination="vcW-zO-n6R" id="D5n-uG-Qmz"/>
                 <outlet property="lblAddress" destination="F4U-ff-1ji" id="6Uj-AT-E7N"/>
                 <outlet property="lblUsername" destination="QKy-ZF-Px0" id="1kZ-qV-ae8"/>
-                <outlet property="mapCurrentLocation" destination="mXR-3W-LU3" id="bBE-Iw-Qxr"/>
+                <outlet property="mapCurrentLocation" destination="Pdy-B3-jWB" id="T28-1m-glM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -67,9 +67,10 @@
                     <rect key="frame" x="16" y="252" width="384" height="384"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mXR-3W-LU3">
-                            <rect key="frame" x="-2" y="1" width="383" height="381"/>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pdy-B3-jWB">
+                            <rect key="frame" x="0.0" y="0.0" width="384" height="384"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </mapView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

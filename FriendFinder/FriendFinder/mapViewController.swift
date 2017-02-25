@@ -7,29 +7,36 @@
 //
 
 import UIKit
+import MapKit
 
-class mapViewController: UIViewController {
+class mapViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet var mapTable: UITableView!
+    @IBOutlet var mapNearfriend: MKMapView!
+    @IBOutlet var mapView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.navigationController?.isNavigationBarHidden = true
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        mapTable.delegate = self
+        self.mapTable.register(UINib(nibName: "friendCell", bundle: nil), forCellReuseIdentifier: "friendCell")
+        
+        mapTable.tableHeaderView = self.mapView
+     
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: - Table Delegate
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:friendCell = mapTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
+        
+        cell.btnAdd.isHidden = true
+        //cell.lblname =
+        return cell
+    }
+    
+    
 }

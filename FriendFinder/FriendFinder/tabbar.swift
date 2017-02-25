@@ -13,11 +13,13 @@ class tabbar: UITabBarController,UITabBarControllerDelegate {
     var tab1: HomeViewController!
     var tab2: FriendViewController!
     var tab3: mapViewController!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = delegate
+        tabBarController?.tabBar.frame.size.height = 100
+        
     }
     
     override func viewWillLayoutSubviews() {
