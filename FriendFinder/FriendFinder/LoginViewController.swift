@@ -37,6 +37,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "LOG IN"
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.email.resignFirstResponder()
+        self.pwd.resignFirstResponder()
+        self.navigationController?.navigationBar.isHidden = true
+        
         self.navigationController?.navigationBar.isHidden = true
         let color = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
         email.layer.borderColor = color.cgColor
@@ -50,18 +58,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         pwd.layer.cornerRadius = 8
         pwd.placeholder = "  Enter password"
         pwd.backgroundColor = UIColor.lightGray
-        
         submit.layer.cornerRadius = 8
 
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.email.resignFirstResponder()
-        self.pwd.resignFirstResponder()
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
-        
-        // Animation
         label.center.y -= view.bounds.width
         email.center.x -= view.bounds.width
         pwd.center.x += view.bounds.width
@@ -101,7 +99,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 DispatchQueue.main.async {
                     if(json.value(forKey: "resp") as! String == "Success"){
                       self.defaults.set(un , forKey: "user")
-                     self.navigationController?.pushViewController(HomeViewController(nibName: "HomeViewController", bundle: nil), animated: true)
+                        let vc = tabbar()
+                     self.navigationController?.pushViewController(vc, animated: true)
                         }
                 }
 
@@ -119,15 +118,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         let vc = SignUPViewController(nibName: "SignUPViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)
         
-        //Animation
-        UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10.0, options: [], animations: {
-            self.submit.bounds = CGRect(x: UIScreen.main.bounds.origin.x - 20, y: UIScreen.main.bounds.origin.y, width: UIScreen.main.bounds.size.width + 60, height: UIScreen.main.bounds.size.height)
-            self.submit.isEnabled = false
-        }, completion: nil)
-        UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10.0, options: [], animations: {
-            self.submit.bounds = CGRect(x: UIScreen.main.bounds.origin.x - 20, y: UIScreen.main.bounds.origin.y, width: UIScreen.main.bounds.size.width + 60, height: UIScreen.main.bounds.size.height)
-            self.submit.isEnabled = false
-        }, completion: nil)
     }
     
     //MARK: - Delegate Method
