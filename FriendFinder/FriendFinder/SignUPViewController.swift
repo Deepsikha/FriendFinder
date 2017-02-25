@@ -90,6 +90,12 @@ class SignUPViewController: UIViewController,GMSAutocompleteViewControllerDelega
     func check(_ pass : String){
         lbl1.text = pass
     }
+    
+    
+    @IBAction func bck(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        
+    }
 
         @IBAction func signUPAction(_ sender: UIButton) {
             
