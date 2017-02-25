@@ -1,9 +1,16 @@
+//
+//  HomeViewController.swift
+//  FriendFinder
+//
+//  Created by devloper65 on 2/25/17.
+//  Copyright © 2017 LaNet. All rights reserved.
+//
+
 import UIKit
 import MapKit
 
 class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
-
-    @IBOutlet var lblName: UILabel!
+    
     @IBOutlet var mapCurrentLocation: MKMapView!
     @IBOutlet var lblAddress: UILabel!
     @IBOutlet var lblUsername: UILabel!
@@ -28,16 +35,8 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
         locManager.requestWhenInUseAuthorization()
         locManager.startUpdatingLocation()
         print(locManager.location!)
-        let a = locManager.location!.coordinate.latitude
-        let b = locManager.location!.coordinate.longitude
         
-        let location = CLLocationCoordinate2DMake(a,b)
-        let annotation = MKPointAnnotation()
         mapCurrentLocation.delegate = self
-        mapCurrentLocation.removeAnnotation(annotation as MKAnnotation)
-        annotation.coordinate = location
-        annotation.title = "Current Location"
-        mapCurrentLocation.addAnnotation(annotation)
         
         mapCurrentLocation.isScrollEnabled = false
         
@@ -75,8 +74,9 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
             DispatchQueue.main.async {
                 print(resultsArr)
                 self.userdetail = (resultsArr.object(at: 0) as AnyObject) as! NSDictionary
-                self.lblUsername.text = "Username: " + (self.userdetail.value(forKey: "username") as? String)!
-                self.lblName.text = (self.userdetail.value(forKey: "name") as? String)!
+                
+                //                self.lblUsername.text = "Username: " + (self.userdetail.value(forKey: "username") as? String)!
+                self.lblUsername.text = (self.userdetail.value(forKey: "name") as? String)!
                 self.lblAddress.text = (self.userdetail.value(forKey: "locality") as? String)!
                 
             }
@@ -102,22 +102,22 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
 }
 
 /*SELECT x.username,y.status FROM (
-SELECT users.username,users.user_id from users WHERE users.user_id IN (
-SELECT if(relationship.user_one_id != 10,
-relationship.user_one_id,
-if(relationship.user_two_id != 10,
-relationship.user_two_id,false)
-) from relationship where
-relationship.user_one_id = 10 OR relationship.user_two_id = 10
-)
-) as x
-INNER JOIN
-(
-SELECT if(relationship.user_one_id != 10,
-relationship.user_one_id,
-if(relationship.user_two_id != 10,
-relationship.user_two_id,false)
-) as id,relationship.status from relationship where
-relationship.user_one_id = 10 OR relationship.user_two_id = 10
-) as y
-ON x.user_id = y.id*/
+ SELECT users.username,users.user_id from users WHERE users.user_id IN (
+ SELECT if(relationship.user_one_id != 10,
+ relationship.user_one_id,
+ if(relationship.user_two_id != 10,
+ relationship.user_two_id,false)
+ ) from relationship where
+ relationship.user_one_id = 10 OR relationship.user_two_id = 10
+ )
+ ) as x
+ INNER JOIN
+ (
+ SELECT if(relationship.user_one_id != 10,
+ relationship.user_one_id,
+ if(relationship.user_two_id != 10,
+ relationship.user_two_id,false)
+ ) as id,relationship.status from relationship where
+ relationship.user_one_id = 10 OR relationship.user_two_id = 10
+ ) as y
+ ON x.user_id = y.id*/
