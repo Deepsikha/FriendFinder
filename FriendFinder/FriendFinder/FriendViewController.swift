@@ -75,6 +75,11 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let vc = friendInfoViewController()
+//        if 
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:friendCell = tableFriend.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
         if (self.resultSearchController.isActive) {
@@ -94,7 +99,7 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         filteredFriendList.removeAll()
         
-        let parameters:[String:String] = ["searchTerm":searchController.searchBar.text!]
+        let parameters:[String:String] = ["searchTerm":searchController.searchBar.text!,"searchedby":UserDefaults.standard.value(forKey: "user") as! String]
         server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "searchUser", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
             
         }, response_Dictionary: { (json) in
