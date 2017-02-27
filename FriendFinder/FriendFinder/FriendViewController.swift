@@ -78,10 +78,10 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = friendInfoViewController()
         if (self.resultSearchController.isActive) {
-                vc.username = filteredFriendList[indexPath.row].value(forKey: "username") as! String
+                vc.username = filteredFriendList[indexPath.row].value(forKey: "username") as? String
                 self.navigationController?.pushViewController(vc, animated: true)
         } else {
-            vc.username = (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "username") as! String
+            vc.username = (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "username") as? String
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
