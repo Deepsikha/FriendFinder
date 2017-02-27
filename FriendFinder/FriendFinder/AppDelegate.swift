@@ -8,27 +8,41 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 import GooglePlaces
 
 
-
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
     
     var window: UIWindow?
     var navController: UINavigationController?
     var viewController = FriendViewController()
     let shareData = ShareData.sharedInstance
     let defaults = UserDefaults.standard
+    var locManager = CLLocationManager()
+    var location : String!
     var user: String?
+    var currentLatitude: String?
+    var currentLongitude: String?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        Location().locationManager.requestAlwaysAuthorization()
-
+        
         GMSPlacesClient.provideAPIKey("AIzaSyDt2T1bFK6sowqk4WH_ZOA0v-tl115jnQg")
         
+        locManager.delegate = self
+        locManager.requestAlwaysAuthorization()
+        locManager.desiredAccuracy = kCLLocationAccuracyBest
+        locManager.distanceFilter = 150.0
+        locManager.startUpdatingLocation()
+        currentLatitude = String(describing: (locManager.location?.coordinate.latitude)!)
+        currentLongitude = String(describing: (locManager.location?.coordinate.longitude)!)
+        location = currentLatitude?.appending(",").appending(currentLongitude!)
+        print(location)
+        
         if(UserDefaults.standard.value(forKey: "user") != nil){
-                       let rootVC = AController(nibName: "AController", bundle: nil)
+            
+            let rootVC = tabbar()
             let nav = UINavigationController(rootViewController: rootVC)
             window?.rootViewController = nav
             window?.makeKeyAndVisible()
@@ -45,6 +59,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     
     
     
+    func locationManager(_ manager: CLLocationManager,
+                         didUpdateLocations locations: [CLLocation])
+    {
+        currentLatitude = String(describing: (manager.location?.coordinate.latitude)!)
+        currentLongitude = String(describing: (manager.location?.coordinate.longitude)!)
+        location = currentLatitude?.appending(",").appending(currentLongitude!)
+        
+        if(UserDefaults.standard.value(forKey: "user") != nil){
+            let user = UserDefaults.standard.value(forKey: "user") as! String
+            let parameters = ["username": user,"location": location!]
+            print("updated")
+            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "loc", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
+                
+            }, response_Dictionary: { (result) in
+                
+            }, response_Array: { (result) in
+                
+            }, isTokenEmbeded: false)
+        }
+        else{
+            print("Username is empty")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager,
+                         didFailWithError error: Error)
+    {
+        print("Location not updated")
+        
+    }
     
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

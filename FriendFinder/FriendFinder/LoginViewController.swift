@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class LoginViewController: UIViewController,UITextFieldDelegate {
-
+    
     @IBOutlet var Forward: UIButton!
     @IBOutlet var label: UILabel!
     @IBOutlet var email: UITextField!
@@ -18,7 +18,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var submit: UIButton!
     @IBOutlet var NewAcc: UIButton!
     
-    var defaults = UserDefaults.standard
     var fetchedPerson: [Person] = []
     var filteredArray = [Person]()
     var valueSentFromSignUPPage:String?
@@ -33,7 +32,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         })
         return container
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "LOG IN"
@@ -59,7 +58,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         pwd.placeholder = "  Enter password"
         pwd.backgroundColor = UIColor.lightGray
         submit.layer.cornerRadius = 8
-
+        
         label.center.y -= view.bounds.width
         email.center.x -= view.bounds.width
         pwd.center.x += view.bounds.width
@@ -98,13 +97,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             }, response_Dictionary: { (json) in
                 DispatchQueue.main.async {
                     if(json.value(forKey: "resp") as! String == "Success"){
-                      self.defaults.set(un , forKey: "user")
-                        Location()
-                        let vc = AController()
-                     self.navigationController?.pushViewController(vc, animated: true)
-                        }
+                        UserDefaults.standard.set(un , forKey: "user")
+                        let vc = tabbar()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
                 }
-
+                
             }, response_Array: { (resultsArr) in
                 
             }, isTokenEmbeded: false)
