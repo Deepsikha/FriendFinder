@@ -1,29 +1,34 @@
-//
-//  Location.swift
-//  FriendFinder
-//
-//  Created by Developer88 on 2/24/17.
-//  Copyright © 2017 LaNet. All rights reserved.
-//
-
 import Foundation
 import CoreLocation
 
 class Location : NSObject, CLLocationManagerDelegate{
     var locationManager: CLLocationManager = CLLocationManager()
     var defaults = UserDefaults.standard
-
+    
     override init(){
-    super.init()
+        super.init()
+        print("Location")
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 150
-        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 150.0
+        switch CLLocationManager.authorizationStatus() {
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization() // or request always if you need it
+        case .restricted, .denied: break
+        // tell users that they need to enable access in settings
+        default:
+            break
+        }
+        
+        
     }
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation])
     {
+        print("ABCD")
         let lat = String(describing: locationManager.location?.coordinate.latitude)
         let long = String(describing: locationManager.location?.coordinate.longitude)
         let location = lat.appending(",").appending(long)

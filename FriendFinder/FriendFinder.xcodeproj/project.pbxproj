@@ -8,14 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		5C26C0621E6040D20017A4F5 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C26C0611E6040D20017A4F5 /* Location.swift */; };
+		5C714ECF1E614ECB001F1522 /* GooglePlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714ECE1E614ECB001F1522 /* GooglePlaces.framework */; };
+		5C714ED11E614EDB001F1522 /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714ED01E614EDB001F1522 /* GoogleMapsBase.framework */; };
+		5C714ED31E614F0F001F1522 /* GooglePlaces.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5C714ED21E614F0F001F1522 /* GooglePlaces.bundle */; };
+		5C714ED61E614F31001F1522 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714ED51E614F31001F1522 /* Accelerate.framework */; };
+		5C714ED81E614F37001F1522 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714ED71E614F37001F1522 /* CoreData.framework */; };
+		5C714EDB1E614F53001F1522 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714ED91E614F53001F1522 /* CoreGraphics.framework */; };
+		5C714EDC1E614F53001F1522 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EDA1E614F53001F1522 /* CoreText.framework */; };
+		5C714EDE1E614F5E001F1522 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EDD1E614F5E001F1522 /* GLKit.framework */; };
+		5C714EE01E614F68001F1522 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EDF1E614F68001F1522 /* ImageIO.framework */; };
+		5C714EE21E614F99001F1522 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EE11E614F99001F1522 /* UIKit.framework */; };
+		5C714EE41E614F9F001F1522 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EE31E614F9E001F1522 /* OpenGLES.framework */; };
+		5C714EE61E614FB3001F1522 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EE51E614FB3001F1522 /* libz.tbd */; };
+		5C714EE81E614FBD001F1522 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EE71E614FBD001F1522 /* libc++.tbd */; };
+		5C714EEA1E614FCB001F1522 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EE91E614FCB001F1522 /* SystemConfiguration.framework */; };
+		5C714EEC1E614FD1001F1522 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EEB1E614FD1001F1522 /* QuartzCore.framework */; };
+		5CD5D5EB1E642E7E0003501C /* ForgotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5D5E91E642E7D0003501C /* ForgotController.swift */; };
+		5CD5D5EC1E642E7E0003501C /* ForgotController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD5D5EA1E642E7E0003501C /* ForgotController.xib */; };
 		5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */; };
 		5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBEA451E5EAA7400736FB3 /* ShareData.swift */; };
-		7B334EC41E5DA7610092C639 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B334EC21E5DA7610092C639 /* HomeViewController.swift */; };
-		7B334EC51E5DA7610092C639 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B334EC31E5DA7610092C639 /* HomeViewController.xib */; };
+		7BE79CA81E63EC85005D1A9A /* friendInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */; };
+		7BE79CA91E63EC85005D1A9A /* friendInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */; };
+		7D0432591E61444F008CB872 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0432571E61444F008CB872 /* HomeViewController.swift */; };
+		7D04325A1E61444F008CB872 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0432581E61444F008CB872 /* HomeViewController.xib */; };
 		7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */; };
 		7D5DC8201E5D9D7C00247F63 /* FriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5DC81E1E5D9D7C00247F63 /* FriendViewController.xib */; };
 		7D5DC8231E5D9FF100247F63 /* friendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DC8211E5D9FF100247F63 /* friendCell.swift */; };
 		7D5DC8241E5D9FF100247F63 /* friendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D5DC8221E5D9FF100247F63 /* friendCell.xib */; };
+		7D6B1F381E605EC800B0D132 /* tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6B1F371E605EC800B0D132 /* tabbar.swift */; };
 		7D6CBE551E5C09EE00435CB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE541E5C09EE00435CB1 /* AppDelegate.swift */; };
 		7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE561E5C09EE00435CB1 /* ViewController.swift */; };
 		7D6CBE5A1E5C09EE00435CB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE581E5C09EE00435CB1 /* Main.storyboard */; };
@@ -28,6 +48,8 @@
 		7D6CBE8C1E5C0AD900435CB1 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */; };
 		7D6CBE8F1E5C0FB100435CB1 /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6CBE8D1E5C0FB100435CB1 /* SignUPViewController.swift */; };
 		7D6CBE921E5C2AFD00435CB1 /* SignUPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */; };
+		7DBB7D341E604EB60026BCBD /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB7D321E604EB60026BCBD /* mapViewController.swift */; };
+		7DBB7D351E604EB60026BCBD /* mapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DBB7D331E604EB60026BCBD /* mapViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,14 +71,35 @@
 
 /* Begin PBXFileReference section */
 		5C26C0611E6040D20017A4F5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5C714ECD1E614DF6001F1522 /* FriendFinder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FriendFinder-Bridging-Header.h"; sourceTree = "<group>"; };
+		5C714ECE1E614ECB001F1522 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
+		5C714ED01E614EDB001F1522 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
+		5C714ED21E614F0F001F1522 /* GooglePlaces.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
+		5C714ED51E614F31001F1522 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		5C714ED71E614F37001F1522 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5C714ED91E614F53001F1522 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5C714EDA1E614F53001F1522 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		5C714EDD1E614F5E001F1522 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		5C714EDF1E614F68001F1522 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		5C714EE11E614F99001F1522 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5C714EE31E614F9E001F1522 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		5C714EE51E614FB3001F1522 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		5C714EE71E614FBD001F1522 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		5C714EE91E614FCB001F1522 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5C714EEB1E614FD1001F1522 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5CD5D5E91E642E7D0003501C /* ForgotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotController.swift; sourceTree = "<group>"; };
+		5CD5D5EA1E642E7E0003501C /* ForgotController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotController.xib; sourceTree = "<group>"; };
 		5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "REST-Api.swift"; sourceTree = "<group>"; };
 		5CEBEA451E5EAA7400736FB3 /* ShareData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
-		7B334EC21E5DA7610092C639 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		7B334EC31E5DA7610092C639 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendInfoViewController.swift; sourceTree = "<group>"; };
+		7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendInfoViewController.xib; sourceTree = "<group>"; };
+		7D0432571E61444F008CB872 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = FriendFinder/HomeViewController.swift; sourceTree = "<group>"; };
+		7D0432581E61444F008CB872 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = FriendFinder/HomeViewController.xib; sourceTree = "<group>"; };
 		7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendViewController.swift; path = FriendFinder/FriendViewController.swift; sourceTree = "<group>"; };
 		7D5DC81E1E5D9D7C00247F63 /* FriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendViewController.xib; path = FriendFinder/FriendViewController.xib; sourceTree = "<group>"; };
 		7D5DC8211E5D9FF100247F63 /* friendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = friendCell.swift; path = FriendFinder/friendCell.swift; sourceTree = "<group>"; };
 		7D5DC8221E5D9FF100247F63 /* friendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = friendCell.xib; path = FriendFinder/friendCell.xib; sourceTree = "<group>"; };
+		7D6B1F371E605EC800B0D132 /* tabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tabbar.swift; path = FriendFinder/tabbar.swift; sourceTree = "<group>"; };
 		7D6CBE511E5C09EE00435CB1 /* FriendFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriendFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D6CBE541E5C09EE00435CB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D6CBE561E5C09EE00435CB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +118,8 @@
 		7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginViewController.xib; path = FriendFinder/LoginViewController.xib; sourceTree = "<group>"; };
 		7D6CBE8D1E5C0FB100435CB1 /* SignUPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUPViewController.swift; path = FriendFinder/SignUPViewController.swift; sourceTree = "<group>"; };
 		7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUPViewController.xib; sourceTree = "<group>"; };
+		7DBB7D321E604EB60026BCBD /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mapViewController.swift; path = FriendFinder/mapViewController.swift; sourceTree = "<group>"; };
+		7DBB7D331E604EB60026BCBD /* mapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = mapViewController.xib; path = FriendFinder/mapViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +127,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C714EEC1E614FD1001F1522 /* QuartzCore.framework in Frameworks */,
+				5C714EEA1E614FCB001F1522 /* SystemConfiguration.framework in Frameworks */,
+				5C714EE81E614FBD001F1522 /* libc++.tbd in Frameworks */,
+				5C714EE61E614FB3001F1522 /* libz.tbd in Frameworks */,
+				5C714EE41E614F9F001F1522 /* OpenGLES.framework in Frameworks */,
+				5C714EE21E614F99001F1522 /* UIKit.framework in Frameworks */,
+				5C714EE01E614F68001F1522 /* ImageIO.framework in Frameworks */,
+				5C714EDE1E614F5E001F1522 /* GLKit.framework in Frameworks */,
+				5C714EDB1E614F53001F1522 /* CoreGraphics.framework in Frameworks */,
+				5C714EDC1E614F53001F1522 /* CoreText.framework in Frameworks */,
+				5C714ED81E614F37001F1522 /* CoreData.framework in Frameworks */,
+				5C714ED61E614F31001F1522 /* Accelerate.framework in Frameworks */,
+				5C714ECF1E614ECB001F1522 /* GooglePlaces.framework in Frameworks */,
+				5C714ED11E614EDB001F1522 /* GoogleMapsBase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,13 +161,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C714ED41E614F31001F1522 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C714EEB1E614FD1001F1522 /* QuartzCore.framework */,
+				5C714EE91E614FCB001F1522 /* SystemConfiguration.framework */,
+				5C714EE71E614FBD001F1522 /* libc++.tbd */,
+				5C714EE51E614FB3001F1522 /* libz.tbd */,
+				5C714EE31E614F9E001F1522 /* OpenGLES.framework */,
+				5C714EE11E614F99001F1522 /* UIKit.framework */,
+				5C714EDF1E614F68001F1522 /* ImageIO.framework */,
+				5C714EDD1E614F5E001F1522 /* GLKit.framework */,
+				5C714ED91E614F53001F1522 /* CoreGraphics.framework */,
+				5C714EDA1E614F53001F1522 /* CoreText.framework */,
+				5C714ED71E614F37001F1522 /* CoreData.framework */,
+				5C714ED51E614F31001F1522 /* Accelerate.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7D6CBE481E5C09EE00435CB1 = {
 			isa = PBXGroup;
 			children = (
+				7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */,
+				7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */,
+				5CD5D5E91E642E7D0003501C /* ForgotController.swift */,
+				5CD5D5EA1E642E7E0003501C /* ForgotController.xib */,
+				7D0432571E61444F008CB872 /* HomeViewController.swift */,
+				7D0432581E61444F008CB872 /* HomeViewController.xib */,
+				7D6B1F371E605EC800B0D132 /* tabbar.swift */,
+				7DBB7D321E604EB60026BCBD /* mapViewController.swift */,
+				7DBB7D331E604EB60026BCBD /* mapViewController.xib */,
 				5CEBEA451E5EAA7400736FB3 /* ShareData.swift */,
 				5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */,
-				7B334EC21E5DA7610092C639 /* HomeViewController.swift */,
-				7B334EC31E5DA7610092C639 /* HomeViewController.xib */,
 				7D5DC8211E5D9FF100247F63 /* friendCell.swift */,
 				7D5DC8221E5D9FF100247F63 /* friendCell.xib */,
 				7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */,
@@ -117,10 +202,15 @@
 				7D6CBE891E5C0AD900435CB1 /* LoginViewController.swift */,
 				7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */,
 				7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */,
+				5C714ED21E614F0F001F1522 /* GooglePlaces.bundle */,
+				5C714ED01E614EDB001F1522 /* GoogleMapsBase.framework */,
+				5C714ECE1E614ECB001F1522 /* GooglePlaces.framework */,
 				7D6CBE531E5C09EE00435CB1 /* FriendFinder */,
 				7D6CBE6B1E5C09EF00435CB1 /* FriendFinderTests */,
 				7D6CBE761E5C09EF00435CB1 /* FriendFinderUITests */,
 				7D6CBE521E5C09EE00435CB1 /* Products */,
+				5C714ECD1E614DF6001F1522 /* FriendFinder-Bridging-Header.h */,
+				5C714ED41E614F31001F1522 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,6 +328,7 @@
 				TargetAttributes = {
 					7D6CBE501E5C09EE00435CB1 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					7D6CBE671E5C09EF00435CB1 = {
@@ -278,13 +369,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D5DC8201E5D9D7C00247F63 /* FriendViewController.xib in Resources */,
+				7BE79CA91E63EC85005D1A9A /* friendInfoViewController.xib in Resources */,
 				7D5DC8241E5D9FF100247F63 /* friendCell.xib in Resources */,
 				7D6CBE921E5C2AFD00435CB1 /* SignUPViewController.xib in Resources */,
 				7D6CBE8C1E5C0AD900435CB1 /* LoginViewController.xib in Resources */,
+				5CD5D5EC1E642E7E0003501C /* ForgotController.xib in Resources */,
 				7D6CBE621E5C09EE00435CB1 /* LaunchScreen.storyboard in Resources */,
 				7D6CBE5F1E5C09EE00435CB1 /* Assets.xcassets in Resources */,
+				7DBB7D351E604EB60026BCBD /* mapViewController.xib in Resources */,
+				7D04325A1E61444F008CB872 /* HomeViewController.xib in Resources */,
 				7D6CBE5A1E5C09EE00435CB1 /* Main.storyboard in Resources */,
-				7B334EC51E5DA7610092C639 /* HomeViewController.xib in Resources */,
+				5C714ED31E614F0F001F1522 /* GooglePlaces.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,11 +407,15 @@
 				7D6CBE8F1E5C0FB100435CB1 /* SignUPViewController.swift in Sources */,
 				5C26C0621E6040D20017A4F5 /* Location.swift in Sources */,
 				7D6CBE8B1E5C0AD900435CB1 /* LoginViewController.swift in Sources */,
-				7B334EC41E5DA7610092C639 /* HomeViewController.swift in Sources */,
+				7D6B1F381E605EC800B0D132 /* tabbar.swift in Sources */,
 				5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */,
+				7D0432591E61444F008CB872 /* HomeViewController.swift in Sources */,
 				7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */,
 				7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */,
 				7D6CBE5D1E5C09EE00435CB1 /* FriendFinder.xcdatamodeld in Sources */,
+				5CD5D5EB1E642E7E0003501C /* ForgotController.swift in Sources */,
+				7DBB7D341E604EB60026BCBD /* mapViewController.swift in Sources */,
+				7BE79CA81E63EC85005D1A9A /* friendInfoViewController.swift in Sources */,
 				7D6CBE551E5C09EE00435CB1 /* AppDelegate.swift in Sources */,
 				5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */,
 				7D5DC8231E5D9FF100247F63 /* friendCell.swift in Sources */,
@@ -471,10 +570,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
+				);
 				INFOPLIST_FILE = FriendFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = lanet.FriendFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FriendFinder-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -483,10 +591,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
+				);
 				INFOPLIST_FILE = FriendFinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = lanet.FriendFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FriendFinder-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
