@@ -185,6 +185,8 @@
 			children = (
 				7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */,
 				7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */,
+				5CD5D5E91E642E7D0003501C /* ForgotController.swift */,
+				5CD5D5EA1E642E7E0003501C /* ForgotController.xib */,
 				7D0432571E61444F008CB872 /* HomeViewController.swift */,
 				7D0432581E61444F008CB872 /* HomeViewController.xib */,
 				7D6B1F371E605EC800B0D132 /* tabbar.swift */,
