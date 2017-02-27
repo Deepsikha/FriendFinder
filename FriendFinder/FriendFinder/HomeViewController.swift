@@ -80,8 +80,9 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
         
     }
     
-    @IBAction func Friends(_ sender: Any) {
-        self.navigationController?.pushViewController(FriendViewController(), animated: true)
+    @IBAction func logout(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "user")
+        self.navigationController?.pushViewController(LoginViewController(), animated: true)
     }
     
     func genQRCode() -> UIImage? {

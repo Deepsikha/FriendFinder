@@ -27,6 +27,8 @@
 		5CD5D5EC1E642E7E0003501C /* ForgotController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD5D5EA1E642E7E0003501C /* ForgotController.xib */; };
 		5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */; };
 		5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBEA451E5EAA7400736FB3 /* ShareData.swift */; };
+		7BE79CA81E63EC85005D1A9A /* friendInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */; };
+		7BE79CA91E63EC85005D1A9A /* friendInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */; };
 		7D0432591E61444F008CB872 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0432571E61444F008CB872 /* HomeViewController.swift */; };
 		7D04325A1E61444F008CB872 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0432581E61444F008CB872 /* HomeViewController.xib */; };
 		7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */; };
@@ -48,7 +50,6 @@
 		7D6CBE921E5C2AFD00435CB1 /* SignUPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */; };
 		7DBB7D341E604EB60026BCBD /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB7D321E604EB60026BCBD /* mapViewController.swift */; };
 		7DBB7D351E604EB60026BCBD /* mapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7DBB7D331E604EB60026BCBD /* mapViewController.xib */; };
-		7DBB7D381E6057790026BCBD /* friendInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DBB7D361E6057790026BCBD /* friendInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		5CD5D5EA1E642E7E0003501C /* ForgotController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotController.xib; sourceTree = "<group>"; };
 		5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "REST-Api.swift"; sourceTree = "<group>"; };
 		5CEBEA451E5EAA7400736FB3 /* ShareData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
+		7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendInfoViewController.swift; sourceTree = "<group>"; };
+		7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendInfoViewController.xib; sourceTree = "<group>"; };
 		7D0432571E61444F008CB872 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = FriendFinder/HomeViewController.swift; sourceTree = "<group>"; };
 		7D0432581E61444F008CB872 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = FriendFinder/HomeViewController.xib; sourceTree = "<group>"; };
 		7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendViewController.swift; path = FriendFinder/FriendViewController.swift; sourceTree = "<group>"; };
@@ -117,8 +120,6 @@
 		7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUPViewController.xib; sourceTree = "<group>"; };
 		7DBB7D321E604EB60026BCBD /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mapViewController.swift; path = FriendFinder/mapViewController.swift; sourceTree = "<group>"; };
 		7DBB7D331E604EB60026BCBD /* mapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = mapViewController.xib; path = FriendFinder/mapViewController.xib; sourceTree = "<group>"; };
-		7DBB7D361E6057790026BCBD /* friendInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = friendInfoViewController.swift; path = FriendFinder/friendInfoViewController.swift; sourceTree = "<group>"; };
-		7DBB7D371E6057790026BCBD /* friendInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = friendInfoViewController.xib; path = FriendFinder/friendInfoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,13 +183,13 @@
 		7D6CBE481E5C09EE00435CB1 = {
 			isa = PBXGroup;
 			children = (
+				7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */,
+				7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */,
 				5CD5D5E91E642E7D0003501C /* ForgotController.swift */,
 				5CD5D5EA1E642E7E0003501C /* ForgotController.xib */,
 				7D0432571E61444F008CB872 /* HomeViewController.swift */,
 				7D0432581E61444F008CB872 /* HomeViewController.xib */,
 				7D6B1F371E605EC800B0D132 /* tabbar.swift */,
-				7DBB7D361E6057790026BCBD /* friendInfoViewController.swift */,
-				7DBB7D371E6057790026BCBD /* friendInfoViewController.xib */,
 				7DBB7D321E604EB60026BCBD /* mapViewController.swift */,
 				7DBB7D331E604EB60026BCBD /* mapViewController.xib */,
 				5CEBEA451E5EAA7400736FB3 /* ShareData.swift */,
@@ -368,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D5DC8201E5D9D7C00247F63 /* FriendViewController.xib in Resources */,
+				7BE79CA91E63EC85005D1A9A /* friendInfoViewController.xib in Resources */,
 				7D5DC8241E5D9FF100247F63 /* friendCell.xib in Resources */,
 				7D6CBE921E5C2AFD00435CB1 /* SignUPViewController.xib in Resources */,
 				7D6CBE8C1E5C0AD900435CB1 /* LoginViewController.xib in Resources */,
@@ -408,12 +410,12 @@
 				7D6B1F381E605EC800B0D132 /* tabbar.swift in Sources */,
 				5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */,
 				7D0432591E61444F008CB872 /* HomeViewController.swift in Sources */,
-				7DBB7D381E6057790026BCBD /* friendInfoViewController.swift in Sources */,
 				7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */,
 				7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */,
 				7D6CBE5D1E5C09EE00435CB1 /* FriendFinder.xcdatamodeld in Sources */,
 				5CD5D5EB1E642E7E0003501C /* ForgotController.swift in Sources */,
 				7DBB7D341E604EB60026BCBD /* mapViewController.swift in Sources */,
+				7BE79CA81E63EC85005D1A9A /* friendInfoViewController.swift in Sources */,
 				7D6CBE551E5C09EE00435CB1 /* AppDelegate.swift in Sources */,
 				5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */,
 				7D5DC8231E5D9FF100247F63 /* friendCell.swift in Sources */,

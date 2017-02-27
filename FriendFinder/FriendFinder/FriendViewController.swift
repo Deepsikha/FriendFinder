@@ -75,26 +75,40 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = friendInfoViewController()
+        let cell = tableView.cellForRow(at: indexPath) as! friendCell
+        if (self.resultSearchController.isActive) {
+            
+                vc.relation = cell.status
+                vc.username = filteredFriendList[indexPath.row].value(forKey: "username") as? String
+                self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            vc.relation = cell.status
+            vc.username = (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "username") as? String
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:friendCell = tableFriend.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
         if (self.resultSearchController.isActive) {
             cell.lblname?.text = filteredFriendList[indexPath.row].value(forKey: "username") as? String
-            
             cell.reloadTable(String(describing: filteredFriendList[indexPath.row].value(forKey: "user_id")!))
-            return cell
         }else{
             //cell.backgroundColor = self.colors[indexPath.row]
            cell.lblname.text = (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "username") as? String
             cell.reloadTable(String(describing: (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "user_id")!))
-            return cell
         }
+        cell.Controller = self
+        return cell
     }
 
     func updateSearchResults(for searchController: UISearchController) {
         
         filteredFriendList.removeAll()
         
-        let parameters:[String:String] = ["searchTerm":searchController.searchBar.text!]
+        let parameters:[String:String] = ["searchTerm":searchController.searchBar.text!,"searchedby":UserDefaults.standard.value(forKey: "user") as! String]
         server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "searchUser", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
             
         }, response_Dictionary: { (json) in
