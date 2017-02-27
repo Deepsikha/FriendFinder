@@ -4,16 +4,21 @@ import MapKit
 class friendInfoViewController: UIViewController,MKMapViewDelegate {
 
   
+    @IBOutlet var btnRelation: UIButton!
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblUsername: UILabel!
     @IBOutlet var imgPro: UIImageView!
     @IBOutlet var lblCaption: UILabel!
+    var relation: Int!
     var latlng: [String]!
     var username: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
+
+        
+        changeBtn()
         
         mapView.delegate = self
         
@@ -22,6 +27,21 @@ class friendInfoViewController: UIViewController,MKMapViewDelegate {
         fetchData()
         
         lblCaption.text = username! + "'s Recent Location"
+    }
+    
+    func changeBtn(){
+        if(relation == 1){
+            btnRelation.setTitle("friend", for: .normal)
+            btnRelation.layer.cornerRadius = 5
+            btnRelation.setTitleColor(UIColor.blue, for: .normal)
+            btnRelation.backgroundColor = UIColor.clear
+        }else{
+            btnRelation.setTitle("addFriend", for: .normal)
+            btnRelation.layer.cornerRadius = 5
+            btnRelation.setTitleColor(UIColor.white, for: .normal)
+            btnRelation.backgroundColor = UIColor.blue
+        }
+
     }
     
     func fetchData(){
@@ -95,4 +115,61 @@ class friendInfoViewController: UIViewController,MKMapViewDelegate {
         
         return nil
     }
+    @IBAction func changeRelation(_ sender: Any) {
+        var parameter:[String:String] = [:]
+        if(relation == 1){
+            let alert = UIAlertController(title: "Unfriend", message: "Are You Sure to unfriend the " + username! + "?", preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "Confirm", style: .destructive, handler: { (alertAction) in
+                parameter = ["user1":UserDefaults.standard.value(forKey: "user") as! String,"user2":self.username!,"signal":"2"]
+                server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "changeRelation", Request_parameter: parameter, Request_parameter_Images: nil, status: { (result) in
+                    
+                }, response_Dictionary: { (json) in
+                    DispatchQueue.main.async {
+                        if json.value(forKey: "resp") as! String == "changed" {
+                            if self.relation == 1{
+                                self.relation = 0
+                            }else{
+                                self.relation = 1
+                            }
+                            self.changeBtn()
+                        }else{
+                            let alert = UIAlertController(title: "Error", message: "something went wrong try again later!", preferredStyle: .alert)
+                            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                            alert.addAction(action)
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
+                }, response_Array: { (arr) in
+                    
+                }, isTokenEmbeded: false)
+            })
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+        }else{
+            parameter = ["user1":UserDefaults.standard.value(forKey: "user") as! String,"user2":self.username!,"signal":"1"]
+            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "changeRelation", Request_parameter: parameter, Request_parameter_Images: nil, status: { (result) in
+                
+            }, response_Dictionary: { (json) in
+                DispatchQueue.main.async {
+                    if json.value(forKey: "resp") as! String == "changed" {
+                        if self.relation == 1{
+                            self.relation = 0
+                        }else{
+                            self.relation = 1
+                        }
+                        self.changeBtn()
+                    }else{
+                        let alert = UIAlertController(title: "Error", message: "something went wrong try again later!", preferredStyle: .alert)
+                        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+                        alert.addAction(action)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            }, response_Array: { (arr) in
+                
+            }, isTokenEmbeded: false)
+        }
+        
+    }
+    
 }
