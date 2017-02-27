@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locManager.delegate = self
         locManager.requestAlwaysAuthorization()
         locManager.desiredAccuracy = kCLLocationAccuracyBest
-        locManager.distanceFilter = 150.0
+        locManager.distanceFilter = 5.0
         locManager.startUpdatingLocation()
         currentLatitude = String(describing: (locManager.location?.coordinate.latitude)!)
         currentLongitude = String(describing: (locManager.location?.coordinate.longitude)!)
