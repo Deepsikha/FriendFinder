@@ -23,7 +23,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Location()
+        
         self.navigationController?.isNavigationBarHidden = true
         
         mapCurrentLocation.layer.cornerRadius = mapCurrentLocation.frame.height / 2
@@ -35,11 +35,10 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
         locManager.requestWhenInUseAuthorization()
         locManager.startUpdatingLocation()
         print(locManager.location!)
-        
+        let app = AppDelegate()
+        app.locationManager(locManager, didUpdateLocations: [(locManager.location)!])
         mapCurrentLocation.delegate = self
-        
         mapCurrentLocation.isScrollEnabled = false
-        
         
     }
     
@@ -69,13 +68,10 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
             
         }, response_Dictionary: { (json) in
             
-            
         }, response_Array: { (resultsArr) in
             DispatchQueue.main.async {
                 print(resultsArr)
                 self.userdetail = (resultsArr.object(at: 0) as AnyObject) as! NSDictionary
-                
-                //                self.lblUsername.text = "Username: " + (self.userdetail.value(forKey: "username") as? String)!
                 self.lblUsername.text = (self.userdetail.value(forKey: "name") as? String)!
                 self.lblAddress.text = (self.userdetail.value(forKey: "locality") as? String)!
                 
@@ -83,10 +79,11 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
         }, isTokenEmbeded: false)
         
     }
+    
     @IBAction func Friends(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "user")
-        self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        self.navigationController?.pushViewController(FriendViewController(), animated: true)
     }
+    
     func genQRCode() -> UIImage? {
         let data = (defaults.value(forKey: "user")as! String).data(using: String.Encoding.ascii)
         
@@ -97,7 +94,6 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
                 return UIImage(ciImage: output)
             }
         }
-        
         return nil
     }
 }
