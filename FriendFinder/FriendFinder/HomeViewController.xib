@@ -45,14 +45,6 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W87-Bp-HEZ">
-                            <rect key="frame" x="331" y="0.0" width="51" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Logout"/>
-                            <connections>
-                                <action selector="Friends:" destination="-1" eventType="touchDown" id="40F-Hq-Wf8"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKy-ZF-Px0">
                             <rect key="frame" x="113" y="49" width="266" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
