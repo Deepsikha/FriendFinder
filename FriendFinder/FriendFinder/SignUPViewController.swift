@@ -23,8 +23,6 @@ class SignUPViewController: UIViewController,GMSAutocompleteViewControllerDelega
         @IBOutlet var btnsubmit: UIButton!
         var TableData:Array< String > = Array < String >()
 
-
-   
         override func viewDidLoad() {
             super.viewDidLoad()
             self.title = "SIGN UP"
