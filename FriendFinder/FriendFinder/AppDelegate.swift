@@ -107,7 +107,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        locManager.startUpdatingLocation()
         self.saveContext()
     }
     
