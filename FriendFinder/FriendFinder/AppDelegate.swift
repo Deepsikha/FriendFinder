@@ -35,10 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locManager.desiredAccuracy = kCLLocationAccuracyBest
         locManager.distanceFilter = 5.0
         locManager.startUpdatingLocation()
+        
         currentLatitude = String(describing: (locManager.location?.coordinate.latitude)!)
         currentLongitude = String(describing: (locManager.location?.coordinate.longitude)!)
         location = currentLatitude?.appending(",").appending(currentLongitude!)
-        print(location)
         
         if(UserDefaults.standard.value(forKey: "user") != nil){
             
@@ -107,8 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
+        locManager.startUpdatingLocation()
         self.saveContext()
     }
     

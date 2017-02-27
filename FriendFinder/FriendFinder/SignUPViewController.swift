@@ -8,9 +8,9 @@
 
 import UIKit
 import GooglePlaces
+import CoreLocation
 
-
-class SignUPViewController: UIViewController,GMSAutocompleteViewControllerDelegate {
+class SignUPViewController: UIViewController,GMSAutocompleteViewControllerDelegate, CLLocationManagerDelegate {
 
     @IBOutlet var lbl1: UILabel!
         @IBOutlet var city: UITextField!
@@ -22,8 +22,14 @@ class SignUPViewController: UIViewController,GMSAutocompleteViewControllerDelega
         @IBOutlet var pwd1: UITextField!
         @IBOutlet var btnsubmit: UIButton!
         var TableData:Array< String > = Array < String >()
+        let locManager = CLLocationManager()
+
    
         override func viewDidLoad() {
+            locManager.delegate = self
+            locManager.desiredAccuracy = kCLLocationAccuracyBest
+            locManager.requestWhenInUseAuthorization()
+            locManager.startUpdatingLocation()
             super.viewDidLoad()
             self.title = "SIGN UP"
             self.navigationController?.navigationBar.isHidden = true
@@ -124,6 +130,11 @@ class SignUPViewController: UIViewController,GMSAutocompleteViewControllerDelega
                         self.username.text = ""
                     }
                      else if(json.value(forKey: "resp") as! String == "Success"){
+                        UserDefaults.standard.set(self.username.text, forKey: "user")
+                        let app = AppDelegate()
+                        app.locationManager(self.locManager, didUpdateLocations: [(self.locManager.location)!])
+
+                        
                         self.navigationController?.pushViewController(LoginViewController(nibName: "LoginViewController", bundle: nil), animated: true)
                     }
                     }
