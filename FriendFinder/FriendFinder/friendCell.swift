@@ -17,6 +17,7 @@ class friendCell: UITableViewCell {
     var session: URLSession!
     var task: URLSessionDataTask!
     var status: Int!
+    var Controller: FriendViewController!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,10 +52,94 @@ class friendCell: UITableViewCell {
             }, isTokenEmbeded: false)
         }
         
-
-
-    @IBAction func btnAddAction(_ sender: UIButton) {
-        print(status)
+    func changeBtn(){
+        if(status == 1){
+            self.btnAdd.setImage(UIImage(named: "removefriend"), for: .normal)
+        }else{
+            self.btnAdd.setImage(UIImage(named: "addfriend"), for: .normal)
+        }
+        
     }
+    
+    func unfriend(){
+        let parameter = ["user1":UserDefaults.standard.value(forKey: "user") as! String,"user2":self.lblname.text!,"signal":"2"]
+        server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "changeRelation", Request_parameter: parameter, Request_parameter_Images: nil, status: { (result) in
+            
+        }, response_Dictionary: { (json) in
+            DispatchQueue.main.async {
+                if json.value(forKey: "resp") as! String == "changed" {
+                    self.subviews.last?.removeFromSuperview()
+                    self.btnAdd.isHidden = false
+                    if self.status == 1{
+                        self.status = 0
+                    }else{
+                        self.status = 1
+                    }
+                    self.changeBtn()
+                    self.Controller.fetchData()
+                }else{
+                    UIView.animate(withDuration: 0.6, animations: {
+                        self.subviews.last?.removeFromSuperview()
+                    })
+                    let lbl = UILabel(frame: self.btnAdd.frame)
+                    lbl.text = "error"
+                    lbl.textColor = UIColor.red
+                    self.addSubview(lbl)
+                    UIView.animate(withDuration: 0.6, animations: {
+                        self.subviews.last?.removeFromSuperview()
+                    })
+                }
+            }
+        }, response_Array: { (arr) in
+            
+        }, isTokenEmbeded: false)
+    }
+    
+    @IBAction func changeRelation(_ sender: Any) {
+        var parameter:[String:String] = [:]
+        if(status == 1){
+            btnAdd.isHidden = true
+            let btnRelation = UIButton(frame: CGRect(x:btnAdd.frame.origin.x - 70,y:btnAdd.frame.origin.y,width: 100,height: btnAdd.frame.height))
+            btnRelation.setTitle("Confirm", for: .normal)
+            btnRelation.layer.cornerRadius = 5
+            btnRelation.setTitleColor(UIColor.blue, for: .normal)
+            btnRelation.backgroundColor = UIColor.clear
+            btnRelation.addTarget(self, action: #selector(unfriend), for: .touchDown)
+            self.addSubview(btnRelation)
+        }else{
+            parameter = ["user1":UserDefaults.standard.value(forKey: "user") as! String,"user2":self.lblname.text!,"signal":"1"]
+            server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "changeRelation", Request_parameter: parameter, Request_parameter_Images: nil, status: { (result) in
+                
+            }, response_Dictionary: { (json) in
+                DispatchQueue.main.async {
+                    if json.value(forKey: "resp") as! String == "changed" {
+                        if self.status == 1{
+                            self.status = 0
+                        }else{
+                            self.status = 1
+                        }
+                        self.changeBtn()
+                        self.Controller.fetchData()
+                    }else{
+                        UIView.animate(withDuration: 0.6, animations: {
+                            self.subviews.last?.removeFromSuperview()
+                        })
+                        let lbl = UILabel(frame: self.btnAdd.frame)
+                        lbl.text = "error"
+                        lbl.textColor = UIColor.red
+                        self.addSubview(lbl)
+                        UIView.animate(withDuration: 0.6, animations: {
+                            self.subviews.last?.removeFromSuperview()
+                        })
+                    }
+                }
+            }, response_Array: { (arr) in
+                
+            }, isTokenEmbeded: false)
+        }
+        
+    }
+    
+    
     
 }

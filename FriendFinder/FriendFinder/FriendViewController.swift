@@ -94,15 +94,14 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         let cell:friendCell = tableFriend.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
         if (self.resultSearchController.isActive) {
             cell.lblname?.text = filteredFriendList[indexPath.row].value(forKey: "username") as? String
-            
             cell.reloadTable(String(describing: filteredFriendList[indexPath.row].value(forKey: "user_id")!))
-            return cell
         }else{
             //cell.backgroundColor = self.colors[indexPath.row]
            cell.lblname.text = (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "username") as? String
             cell.reloadTable(String(describing: (friendlist.object(at: indexPath.row) as AnyObject).value(forKey: "user_id")!))
-            return cell
         }
+        cell.Controller = self
+        return cell
     }
 
     func updateSearchResults(for searchController: UISearchController) {
