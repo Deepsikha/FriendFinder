@@ -23,6 +23,8 @@
 		5C714EE81E614FBD001F1522 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EE71E614FBD001F1522 /* libc++.tbd */; };
 		5C714EEA1E614FCB001F1522 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EE91E614FCB001F1522 /* SystemConfiguration.framework */; };
 		5C714EEC1E614FD1001F1522 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C714EEB1E614FD1001F1522 /* QuartzCore.framework */; };
+		5CD5D5EB1E642E7E0003501C /* ForgotController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD5D5E91E642E7D0003501C /* ForgotController.swift */; };
+		5CD5D5EC1E642E7E0003501C /* ForgotController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD5D5EA1E642E7E0003501C /* ForgotController.xib */; };
 		5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */; };
 		5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBEA451E5EAA7400736FB3 /* ShareData.swift */; };
 		7D0432591E61444F008CB872 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0432571E61444F008CB872 /* HomeViewController.swift */; };
@@ -84,6 +86,8 @@
 		5C714EE71E614FBD001F1522 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		5C714EE91E614FCB001F1522 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5C714EEB1E614FD1001F1522 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5CD5D5E91E642E7D0003501C /* ForgotController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotController.swift; sourceTree = "<group>"; };
+		5CD5D5EA1E642E7E0003501C /* ForgotController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotController.xib; sourceTree = "<group>"; };
 		5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "REST-Api.swift"; sourceTree = "<group>"; };
 		5CEBEA451E5EAA7400736FB3 /* ShareData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
 		7D0432571E61444F008CB872 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = FriendFinder/HomeViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 		7D6CBE481E5C09EE00435CB1 = {
 			isa = PBXGroup;
 			children = (
+				5CD5D5E91E642E7D0003501C /* ForgotController.swift */,
+				5CD5D5EA1E642E7E0003501C /* ForgotController.xib */,
 				7D0432571E61444F008CB872 /* HomeViewController.swift */,
 				7D0432581E61444F008CB872 /* HomeViewController.xib */,
 				7D6B1F371E605EC800B0D132 /* tabbar.swift */,
@@ -365,6 +371,7 @@
 				7D5DC8241E5D9FF100247F63 /* friendCell.xib in Resources */,
 				7D6CBE921E5C2AFD00435CB1 /* SignUPViewController.xib in Resources */,
 				7D6CBE8C1E5C0AD900435CB1 /* LoginViewController.xib in Resources */,
+				5CD5D5EC1E642E7E0003501C /* ForgotController.xib in Resources */,
 				7D6CBE621E5C09EE00435CB1 /* LaunchScreen.storyboard in Resources */,
 				7D6CBE5F1E5C09EE00435CB1 /* Assets.xcassets in Resources */,
 				7DBB7D351E604EB60026BCBD /* mapViewController.xib in Resources */,
@@ -405,6 +412,7 @@
 				7D6CBE571E5C09EE00435CB1 /* ViewController.swift in Sources */,
 				7D5DC81F1E5D9D7C00247F63 /* FriendViewController.swift in Sources */,
 				7D6CBE5D1E5C09EE00435CB1 /* FriendFinder.xcdatamodeld in Sources */,
+				5CD5D5EB1E642E7E0003501C /* ForgotController.swift in Sources */,
 				7DBB7D341E604EB60026BCBD /* mapViewController.swift in Sources */,
 				7D6CBE551E5C09EE00435CB1 /* AppDelegate.swift in Sources */,
 				5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */,
