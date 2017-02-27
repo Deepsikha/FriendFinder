@@ -112,6 +112,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     
+    @IBAction func frgt(_ sender: Any) {
+        self.navigationController?.pushViewController(ForgotController(), animated: true)
+    }
     
     @IBAction func signUPAction(_ sender: UIButton) {
         let vc = SignUPViewController(nibName: "SignUPViewController", bundle: nil)
