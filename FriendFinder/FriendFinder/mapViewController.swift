@@ -15,14 +15,18 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet var mapTable: UITableView!
     @IBOutlet var mapNearfriend: MKMapView!
     @IBOutlet var mapView: UIView!
-    var friendlist: NSMutableArray! = []
+    var friendlist: [String]! = []
+    var allfriends: [MKAnnotation]! = []
     var locManager = CLLocationManager()
+    var routesarr: [MKOverlay] = [MKOverlay]()
+    var disch = CLLocationDistance(0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         locManager.delegate = self
         locManager.desiredAccuracy = kCLLocationAccuracyBest
+        locManager.distanceFilter = 50
         locManager.requestWhenInUseAuthorization()
         locManager.startUpdatingLocation()
         print(locManager.location!)
@@ -38,6 +42,11 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
         mapNearfriend.delegate = self
      
     }
+    override func viewWillAppear(_ animated: Bool) {
+        fetchData()
+    }
+    
+    //MARK: - LocationManager delegate
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first{
@@ -45,7 +54,20 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
             let region = MKCoordinateRegionMake(location.coordinate, span)
             mapNearfriend.setRegion(region, animated: true)
         }
+        mapNearfriend.removeOverlays(routesarr)
+        friendlist.removeAll()
+        routesarr.removeAll()
+        mapTable.reloadData()
         
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let renderer = MKPolylineRenderer(overlay: overlay)
+            renderer.strokeColor = UIColor.red
+            renderer.lineWidth = 4.0
+            
+            return renderer
+
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -60,8 +82,20 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     //MARK: - Table Delegate
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return friendlist.count
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:friendCell = mapTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
+        
+//        cell.lblname = (friendlis.value(forKey: "username") as? String
+        let i = indexPath.section
+        print(i)
+        cell.lblname.text = friendlist[indexPath.row]
+        return cell
+    }
+    
+    //MARK: - FetchData from server
     
     func fetchData(){
         
@@ -79,25 +113,70 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
                     if(((i as AnyObject).value(forKey: "location") as! String) != ""){
                         let loc = ((i as AnyObject).value(forKey: "location") as! String).components(separatedBy: ",")
                         let userLoc = CLLocation(latitude: Double(loc[0])!,longitude: Double(loc[1])!)
-                        if((self.locManager.location?.distance(from: userLoc))! < CLLocationDistance(10000)){
-                            self.friendlist.add(i)
+                        if((self.locManager.location?.distance(from: userLoc))! <= CLLocationDistance(10000)){
+                            self.friendlist.append(((i as AnyObject).value(forKey: "username") as! String))
+                            let anno = MKPointAnnotation()
+                            anno.coordinate = CLLocationCoordinate2DMake(userLoc.coordinate.latitude, userLoc.coordinate.longitude)
+                            anno.title = (i as AnyObject).value(forKey: "username") as! String + "'s recent location"
+                            self.mapNearfriend.removeAnnotation(anno as MKAnnotation)
+                            self.mapNearfriend.addAnnotation(anno as MKAnnotation)
+                            self.createRoutes(location1: (self.locManager.location?.coordinate)!, location2: anno)
+                        }else{
+                            let anno = MKPointAnnotation()
+                            anno.coordinate = CLLocationCoordinate2DMake(userLoc.coordinate.latitude, userLoc.coordinate.longitude)
+                            anno.title = (i as AnyObject).value(forKey: "username") as! String + "'s recent location"
+                            self.mapNearfriend.removeAnnotation(anno as MKAnnotation)
+                            self.mapNearfriend.addAnnotation(anno as MKAnnotation)
+//                            self.allfriends.app
                         }
                     }
                 }
-                
+                print(self.friendlist)
                 self.mapTable.reloadData()
             }
         }, isTokenEmbeded: false)
         
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:friendCell = mapTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
+    
+    //MARK: - Routes creation of map
+    func createRoutes(location1: CLLocationCoordinate2D,location2: MKPointAnnotation){
+        let sourcePlace = MKPlacemark(coordinate: location1, addressDictionary: nil)
+        let destinationPlace = MKPlacemark(coordinate: location2.coordinate, addressDictionary: nil)
         
-        cell.btnAdd.isHidden = true
-        //cell.lblname =
-        return cell
+        //        let distance = MKDis
+        
+        let sourceMapItem = MKMapItem(placemark: sourcePlace)
+        let destinationMapItem = MKMapItem(placemark: destinationPlace)
+        
+        let directionReq = MKDirectionsRequest()
+        directionReq.source = sourceMapItem
+        directionReq.destination = destinationMapItem
+        directionReq.transportType = .automobile
+        
+        let directions = MKDirections(request: directionReq)
+        
+        directions.calculate { (response, error) in
+            guard let response = response else {
+                if let error = error {
+                    print("error in direction generation: \(error)")
+                }
+                return
+            }
+            
+            
+            let route = response.routes[0]
+            let distance = route.distance
+            print(distance)
+            self.routesarr.append(route.polyline)
+            self.mapNearfriend.add(route.polyline,level: MKOverlayLevel.aboveRoads)
+            location2.subtitle = "\nDistance:"+String(describing: distance)+"meters\nExpectedTime:"+String(describing: route.expectedTravelTime)
+            
+            if self.disch < distance {
+                self.disch = distance
+                let rect = route.polyline.boundingMapRect
+            self.mapNearfriend.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+            }
+        }
     }
-    
-    
 }
