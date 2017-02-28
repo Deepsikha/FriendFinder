@@ -15,6 +15,9 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
     @IBOutlet var lblAddress: UILabel!
     @IBOutlet var lblUsername: UILabel!
     @IBOutlet var imgProfile: UIImageView!
+    @IBOutlet var imgPropic: UILabel!
+    @IBOutlet var btnQrCode: UIButton!
+    @IBOutlet var btnlogout: UIButton!
     
     let defaults = UserDefaults.standard
     var friendlist: NSMutableArray!
@@ -23,11 +26,17 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.navigationController?.isNavigationBarHidden = true
         
+        imgProfile.layer.cornerRadius = imgProfile.frame.size.height / 2
+        imgProfile.layer.borderWidth = 2
+        
+        btnlogout.layer.cornerRadius = 8
+        btnQrCode.layer.cornerRadius = 8
+        
         mapCurrentLocation.layer.cornerRadius = mapCurrentLocation.frame.height / 2
-        imgProfile.image = genQRCode()
+//        imgProfile.image = genQRCode()
         fetchData()
         
         locManager.delegate = self
@@ -74,6 +83,8 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
                 self.userdetail = (resultsArr.object(at: 0) as AnyObject) as! NSDictionary
                 self.lblUsername.text = (self.userdetail.value(forKey: "name") as? String)!
                 self.lblAddress.text = (self.userdetail.value(forKey: "locality") as? String)!
+                self.imgPropic.text = (self.userdetail.value(forKey: "name") as? String)!.components(separatedBy: " ").reduce("") { $0.0 + String($0.1.characters.first!)}.uppercased()
+                print(self.imgPropic)
                 
             }
         }, isTokenEmbeded: false)
@@ -83,6 +94,39 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
     @IBAction func logout(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "user")
         self.navigationController?.pushViewController(LoginViewController(), animated: true)
+    }
+    
+    @IBAction func showQR(_ sender: UIButton) {
+        
+        let QRView = UIView(frame: CGRect(x: self.view.frame.width / 2 - 100, y: self.view.frame.height / 2 - 100, width: 200, height:270))
+        QRView.backgroundColor = UIColor.clear
+        
+        QRView.alpha = 1.0
+        let image = UIImageView(image: genQRCode())
+        image.alpha = 1
+        image.frame = CGRect(x: 0, y: 40, width: 200, height: 200)
+        let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: QRView
+            .frame.width, height: 40))
+        lbl.textAlignment = .center
+        
+        lbl.text = lblUsername.text! + "'s QRCode"
+        
+        let btn  = UIButton(frame: CGRect(x: QRView.frame.width / 2 - 50, y: 240, width: 100, height: 30))
+        btn.setTitle("cancel", for: .normal)
+        btn.setTitleColor(UIColor.black, for: .normal)
+        
+        btn.addTarget(self, action: #selector(close), for: .touchDown)
+        QRView.addSubview(lbl)
+        QRView.addSubview(image)
+        QRView.addSubview(btn)
+        UIView.animate(withDuration: 2) {
+            self.view.addSubview(QRView)
+        }
+        
+    }
+    
+    func close(){
+        (self.view.subviews.last)?.removeFromSuperview()
     }
     
     func genQRCode() -> UIImage? {
