@@ -22,7 +22,7 @@ class server_API {
     func requestFor_NSMutableDictionary(Str_Request_Url:String , Request_parameter:[String: String]? , Request_parameter_Images:[String: UIImage]? ,status: @escaping (_ result: Calling_Status) -> Void , response_Dictionary: @escaping (_ results: NSMutableDictionary) -> Void , response_Array: @escaping (_ results: NSMutableArray) -> Void,isTokenEmbeded:Bool){
         let myurl = NSURL(string: "\(Base_url)\(Str_Request_Url)")
         let obj_of_status = Calling_Status(Status: false, Message: "Request Failed",Request_Url: "\(Base_url)\(Str_Request_Url)")
-        print(myurl)
+        print(myurl!)
         let req = NSMutableURLRequest(url: myurl! as URL)
         if(isTokenEmbeded == false){
             
@@ -56,7 +56,7 @@ class server_API {
         else{
             if Request_parameter  != nil {
                 req.httpMethod = "POST"
-                let boundary = generateBoundaryString()
+                _ = generateBoundaryString()
                 
                 for (key, value) in Request_parameter!
                 {
@@ -214,7 +214,7 @@ class server_API {
         
         DispatchQueue.global().async {
             let myurl = NSURL(string: "\(self.Base_url)\(Str_Request_Url)")
-            print(myurl)
+            print(myurl!)
             let req = NSMutableURLRequest(url: myurl! as URL)
             if Request_parameter_Images != nil {
                 req.httpMethod = "POST"

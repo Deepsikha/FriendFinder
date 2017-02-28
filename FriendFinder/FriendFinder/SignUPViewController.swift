@@ -95,8 +95,9 @@ class SignUPViewController: UIViewController,GMSAutocompleteViewControllerDelega
     
     
     @IBAction func bck(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        }
     }
 
     func isValidEmail(testStr:String) -> Bool {

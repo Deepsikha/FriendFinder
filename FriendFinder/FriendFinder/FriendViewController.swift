@@ -17,7 +17,7 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         fetchData()
         
-        if let name = defaults.string(forKey: "user")
+        if let name = UserDefaults.standard.string(forKey: "user")
         {
             print(name)
             
@@ -46,7 +46,7 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
     //MARK: - Fetching Data
     func fetchData(){
         
-        let parameters = ["username": defaults.string(forKey: "user")!] as Dictionary<String, String>
+        let parameters = ["username": UserDefaults.standard.string(forKey: "user")!] as Dictionary<String, String>
         server_API.sharedObject.requestFor_NSMutableDictionary(Str_Request_Url: "friends", Request_parameter: parameters, Request_parameter_Images: nil, status: { (result) in
             
         }, response_Dictionary: { (json) in

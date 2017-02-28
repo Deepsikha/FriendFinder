@@ -20,7 +20,9 @@ class ForgotController: UIViewController {
 
     
     @IBAction func bck(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        }
     }
     
     @IBAction func rest(_ sender: Any) {
@@ -34,7 +36,9 @@ class ForgotController: UIViewController {
         }, response_Array: { (param) in
             
         }, isTokenEmbeded: false)
-        self.navigationController?.popViewController(animated: true)
+        if let nav = self.navigationController {
+            nav.popViewController(animated: true)
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
