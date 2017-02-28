@@ -16,6 +16,7 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet var mapNearfriend: MKMapView!
     @IBOutlet var mapView: UIView!
     var friendlist: [String]! = []
+    var friendloc: [CLLocation]! = []
     var allfriends: [MKAnnotation]! = []
     var locManager = CLLocationManager()
     var routesarr: [MKOverlay] = [MKOverlay]()
@@ -55,8 +56,10 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
             mapNearfriend.setRegion(region, animated: true)
         }
         mapNearfriend.removeOverlays(routesarr)
-        friendlist.removeAll()
+//        friendlist.removeAll()
         routesarr.removeAll()
+        mapNearfriend.removeAnnotations(allfriends)
+        allfriends.removeAll()
         mapTable.reloadData()
         
     }
@@ -92,6 +95,13 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
         let i = indexPath.section
         print(i)
         cell.lblname.text = friendlist[indexPath.row]
+        let anno = MKPointAnnotation()
+        anno.coordinate = CLLocationCoordinate2DMake(friendloc[indexPath.row].coordinate.latitude, friendloc[indexPath.row].coordinate.longitude)
+        anno.title = friendlist[indexPath.row] + "'s recent location"
+        self.mapNearfriend.removeAnnotation(anno as MKAnnotation)
+        self.mapNearfriend.addAnnotation(anno as MKAnnotation)
+        self.createRoutes(location1: (self.locManager.location?.coordinate)!, location2: anno)
+        allfriends.append(anno)
         return cell
     }
     
@@ -114,13 +124,9 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
                         let loc = ((i as AnyObject).value(forKey: "location") as! String).components(separatedBy: ",")
                         let userLoc = CLLocation(latitude: Double(loc[0])!,longitude: Double(loc[1])!)
                         if((self.locManager.location?.distance(from: userLoc))! <= CLLocationDistance(10000)){
-                            self.friendlist.append(((i as AnyObject).value(forKey: "username") as! String))
-                            let anno = MKPointAnnotation()
-                            anno.coordinate = CLLocationCoordinate2DMake(userLoc.coordinate.latitude, userLoc.coordinate.longitude)
-                            anno.title = (i as AnyObject).value(forKey: "username") as! String + "'s recent location"
-                            self.mapNearfriend.removeAnnotation(anno as MKAnnotation)
-                            self.mapNearfriend.addAnnotation(anno as MKAnnotation)
-                            self.createRoutes(location1: (self.locManager.location?.coordinate)!, location2: anno)
+                            self.friendlist.append((i as AnyObject).value(forKey: "username") as! String)
+                            self.friendloc.append(userLoc)
+                           
                         }else{
                             let anno = MKPointAnnotation()
                             anno.coordinate = CLLocationCoordinate2DMake(userLoc.coordinate.latitude, userLoc.coordinate.longitude)
@@ -172,11 +178,11 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
             self.mapNearfriend.add(route.polyline,level: MKOverlayLevel.aboveRoads)
             location2.subtitle = "\nDistance:"+String(describing: distance)+"meters\nExpectedTime:"+String(describing: route.expectedTravelTime)
             
-            if self.disch < distance {
-                self.disch = distance
-                let rect = route.polyline.boundingMapRect
-            self.mapNearfriend.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-            }
+//            if self.disch < distance {
+//                self.disch = distance
+//                let rect = route.polyline.boundingMapRect
+//            self.mapNearfriend.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+//            }
         }
     }
 }
