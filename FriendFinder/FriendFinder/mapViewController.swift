@@ -105,6 +105,9 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
+    }
     //MARK: - FetchData from server
     
     func fetchData(){

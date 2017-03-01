@@ -63,7 +63,9 @@ class friendInfoViewController: UIViewController,MKMapViewDelegate {
             
             self.lblUsername.text = (user.value(forKey: "name") as? String)!
             self.lblAddress.text = (user.value(forKey: "locality") as? String)!
-            self.lblProImg.text = (self.lblUsername.text!).components(separatedBy: " ").reduce(" ") { $0.0 + String($0.1.characters.first!)}.uppercased()
+            self.lblProImg.text = (user.value(forKey: "name") as? String)!.components(separatedBy: " ").reduce("") { $0.0 + String($0.1.characters.first!)}.uppercased()
+            print(self.lblProImg)
+            
             let location = (user.value(forKey: "location") as? String)!
             if (location != ""){
                 self.latlng = location.components(separatedBy: ",")
@@ -89,24 +91,31 @@ class friendInfoViewController: UIViewController,MKMapViewDelegate {
     
     @IBAction func showQR(_ sender: Any) {
         
-        let QRView = UIView(frame: CGRect(x: self.view.frame.width / 2 - 100, y: self.view.frame.height / 2 - 100, width: 200, height:270))
-        QRView.backgroundColor = UIColor.clear
-    
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.prominent)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(blurEffectView)
+        
+        let QRView = UIView(frame: CGRect(x: self.view.frame.width / 2 - 135, y: self.view.frame.height / 2 - 151, width: 270, height:270))
+        QRView.backgroundColor = UIColor.white
         QRView.alpha = 1.0
+        
         let image = UIImageView(image: QRCode(username!))
         image.alpha = 1
-        image.frame = CGRect(x: 0, y: 40, width: 200, height: 200)
-        let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: QRView
-            .frame.width, height: 40))
-        lbl.textAlignment = .center
+        image.frame = CGRect(x: 35, y: 30, width: 200, height: 200)
         
-        lbl.text = username! + "'s QRCode"
+        let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: QRView
+            .frame.width, height: 30))
+        lbl.textAlignment = .center
+        lbl.text = username! + "'s QR Code"
         
         let btn  = UIButton(frame: CGRect(x: QRView.frame.width / 2 - 50, y: 240, width: 100, height: 30))
-        btn.setTitle("X", for: .normal)
+        btn.setTitle("Cancel", for: .normal)
         btn.setTitleColor(UIColor.black, for: .normal)
-        
         btn.addTarget(self, action: #selector(close), for: .touchDown)
+        btn.backgroundColor = UIColor.lightGray
+        
         QRView.addSubview(lbl)
         QRView.addSubview(image)
         QRView.addSubview(btn)
@@ -117,6 +126,11 @@ class friendInfoViewController: UIViewController,MKMapViewDelegate {
     }
     
     func close(){
+        UIView.animate(withDuration: 2.0) {
+            self.view.subviews[self.view.subviews.count - 1 ].alpha = 0
+            self.view.subviews[self.view.subviews.count - 2 ].alpha = 0
+        }
+        (self.view.subviews.last)?.removeFromSuperview()
         (self.view.subviews.last)?.removeFromSuperview()
     }
     

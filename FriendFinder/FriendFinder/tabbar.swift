@@ -16,7 +16,7 @@ class tabbar: UITabBarController,UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //self.title = "Logout"
         self.delegate = delegate
         tabBarController?.tabBar.frame.size.height = 100
         
