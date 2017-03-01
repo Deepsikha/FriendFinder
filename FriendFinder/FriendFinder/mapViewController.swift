@@ -1,11 +1,3 @@
-//
-//  mapViewController.swift
-//  FriendFinder
-//
-//  Created by devloper65 on 2/24/17.
-//  Copyright © 2017 LaNet. All rights reserved.
-//
-
 import UIKit
 import MapKit
 import CoreLocation
@@ -56,7 +48,7 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
             mapNearfriend.setRegion(region, animated: true)
         }
         mapNearfriend.removeOverlays(routesarr)
-//        friendlist.removeAll()
+
         routesarr.removeAll()
         mapNearfriend.removeAnnotations(allfriends)
         allfriends.removeAll()
@@ -90,18 +82,20 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:friendCell = mapTable.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! friendCell
-        
-//        cell.lblname = (friendlis.value(forKey: "username") as? String
+
         let i = indexPath.section
         print(i)
         cell.lblname.text = friendlist[indexPath.row]
+        
         let anno = MKPointAnnotation()
         anno.coordinate = CLLocationCoordinate2DMake(friendloc[indexPath.row].coordinate.latitude, friendloc[indexPath.row].coordinate.longitude)
         anno.title = friendlist[indexPath.row] + "'s recent location"
         self.mapNearfriend.removeAnnotation(anno as MKAnnotation)
         self.mapNearfriend.addAnnotation(anno as MKAnnotation)
         self.createRoutes(location1: (self.locManager.location?.coordinate)!, location2: anno)
+        
         allfriends.append(anno)
+        
         return cell
     }
     
@@ -133,7 +127,6 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
                             anno.title = (i as AnyObject).value(forKey: "username") as! String + "'s recent location"
                             self.mapNearfriend.removeAnnotation(anno as MKAnnotation)
                             self.mapNearfriend.addAnnotation(anno as MKAnnotation)
-//                            self.allfriends.app
                         }
                     }
                 }
@@ -149,8 +142,6 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
     func createRoutes(location1: CLLocationCoordinate2D,location2: MKPointAnnotation){
         let sourcePlace = MKPlacemark(coordinate: location1, addressDictionary: nil)
         let destinationPlace = MKPlacemark(coordinate: location2.coordinate, addressDictionary: nil)
-        
-        //        let distance = MKDis
         
         let sourceMapItem = MKMapItem(placemark: sourcePlace)
         let destinationMapItem = MKMapItem(placemark: destinationPlace)

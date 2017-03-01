@@ -27,6 +27,12 @@
 		5CD5D5EC1E642E7E0003501C /* ForgotController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD5D5EA1E642E7E0003501C /* ForgotController.xib */; };
 		5CDE163C1E5DAD6D006AE023 /* REST-Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */; };
 		5CEBEA461E5EAA7400736FB3 /* ShareData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEBEA451E5EAA7400736FB3 /* ShareData.swift */; };
+		7B227E3F1E66F04F00A53C22 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7B227E3D1E66F04F00A53C22 /* GoogleSignIn.bundle */; };
+		7B227E441E66F49400A53C22 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B227E431E66F49400A53C22 /* SafariServices.framework */; };
+		7B227E461E66F57C00A53C22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B227E451E66F57C00A53C22 /* GoogleService-Info.plist */; };
+		7B227E481E66F7A000A53C22 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B227E471E66F7A000A53C22 /* GoogleSignIn.framework */; };
+		7B227E491E66F7AF00A53C22 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B227E411E66F40C00A53C22 /* StoreKit.framework */; };
+		7B227E4B1E66F7B800A53C22 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B227E4A1E66F7B800A53C22 /* AddressBook.framework */; };
 		7BE79CA81E63EC85005D1A9A /* friendInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */; };
 		7BE79CA91E63EC85005D1A9A /* friendInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */; };
 		7D0432591E61444F008CB872 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0432571E61444F008CB872 /* HomeViewController.swift */; };
@@ -91,6 +97,12 @@
 		5CD5D5EA1E642E7E0003501C /* ForgotController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgotController.xib; sourceTree = "<group>"; };
 		5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "REST-Api.swift"; sourceTree = "<group>"; };
 		5CEBEA451E5EAA7400736FB3 /* ShareData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareData.swift; sourceTree = "<group>"; };
+		7B227E3D1E66F04F00A53C22 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
+		7B227E411E66F40C00A53C22 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		7B227E431E66F49400A53C22 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		7B227E451E66F57C00A53C22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7B227E471E66F7A000A53C22 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		7B227E4A1E66F7B800A53C22 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = friendInfoViewController.swift; sourceTree = "<group>"; };
 		7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = friendInfoViewController.xib; sourceTree = "<group>"; };
 		7D0432571E61444F008CB872 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = FriendFinder/HomeViewController.swift; sourceTree = "<group>"; };
@@ -127,12 +139,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C714EEC1E614FD1001F1522 /* QuartzCore.framework in Frameworks */,
+				7B227E4B1E66F7B800A53C22 /* AddressBook.framework in Frameworks */,
+				7B227E491E66F7AF00A53C22 /* StoreKit.framework in Frameworks */,
+				7B227E441E66F49400A53C22 /* SafariServices.framework in Frameworks */,
 				5C714EEA1E614FCB001F1522 /* SystemConfiguration.framework in Frameworks */,
+				5C714EEC1E614FD1001F1522 /* QuartzCore.framework in Frameworks */,
 				5C714EE81E614FBD001F1522 /* libc++.tbd in Frameworks */,
 				5C714EE61E614FB3001F1522 /* libz.tbd in Frameworks */,
 				5C714EE41E614F9F001F1522 /* OpenGLES.framework in Frameworks */,
 				5C714EE21E614F99001F1522 /* UIKit.framework in Frameworks */,
+				7B227E481E66F7A000A53C22 /* GoogleSignIn.framework in Frameworks */,
 				5C714EE01E614F68001F1522 /* ImageIO.framework in Frameworks */,
 				5C714EDE1E614F5E001F1522 /* GLKit.framework in Frameworks */,
 				5C714EDB1E614F53001F1522 /* CoreGraphics.framework in Frameworks */,
@@ -164,6 +180,9 @@
 		5C714ED41E614F31001F1522 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B227E4A1E66F7B800A53C22 /* AddressBook.framework */,
+				7B227E431E66F49400A53C22 /* SafariServices.framework */,
+				7B227E411E66F40C00A53C22 /* StoreKit.framework */,
 				5C714EEB1E614FD1001F1522 /* QuartzCore.framework */,
 				5C714EE91E614FCB001F1522 /* SystemConfiguration.framework */,
 				5C714EE71E614FBD001F1522 /* libc++.tbd */,
@@ -183,6 +202,7 @@
 		7D6CBE481E5C09EE00435CB1 = {
 			isa = PBXGroup;
 			children = (
+				7B227E3D1E66F04F00A53C22 /* GoogleSignIn.bundle */,
 				7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */,
 				7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */,
 				5CD5D5E91E642E7D0003501C /* ForgotController.swift */,
@@ -202,6 +222,7 @@
 				7D6CBE891E5C0AD900435CB1 /* LoginViewController.swift */,
 				7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */,
 				7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */,
+				7B227E471E66F7A000A53C22 /* GoogleSignIn.framework */,
 				5C714ED21E614F0F001F1522 /* GooglePlaces.bundle */,
 				5C714ED01E614EDB001F1522 /* GoogleMapsBase.framework */,
 				5C714ECE1E614ECB001F1522 /* GooglePlaces.framework */,
@@ -232,6 +253,7 @@
 				7D6CBE581E5C09EE00435CB1 /* Main.storyboard */,
 				7D6CBE5E1E5C09EE00435CB1 /* Assets.xcassets */,
 				7D6CBE601E5C09EE00435CB1 /* LaunchScreen.storyboard */,
+				7B227E451E66F57C00A53C22 /* GoogleService-Info.plist */,
 				7D6CBE631E5C09EE00435CB1 /* Info.plist */,
 				7D6CBE5B1E5C09EE00435CB1 /* FriendFinder.xcdatamodeld */,
 				5C26C0611E6040D20017A4F5 /* Location.swift */,
@@ -376,10 +398,12 @@
 				5CD5D5EC1E642E7E0003501C /* ForgotController.xib in Resources */,
 				7D6CBE621E5C09EE00435CB1 /* LaunchScreen.storyboard in Resources */,
 				7D6CBE5F1E5C09EE00435CB1 /* Assets.xcassets in Resources */,
+				7B227E3F1E66F04F00A53C22 /* GoogleSignIn.bundle in Resources */,
 				7DBB7D351E604EB60026BCBD /* mapViewController.xib in Resources */,
 				7D04325A1E61444F008CB872 /* HomeViewController.xib in Resources */,
 				7D6CBE5A1E5C09EE00435CB1 /* Main.storyboard in Resources */,
 				5C714ED31E614F0F001F1522 /* GooglePlaces.bundle in Resources */,
+				7B227E461E66F57C00A53C22 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

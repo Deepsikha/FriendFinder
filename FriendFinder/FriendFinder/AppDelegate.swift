@@ -14,6 +14,7 @@ import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
+
     
     var window: UIWindow?
     var navController: UINavigationController?
@@ -27,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     var currentLongitude: String?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        UIApplication.shared.registerForRemoteNotifications()
         
         GMSPlacesClient.provideAPIKey("AIzaSyDt2T1bFK6sowqk4WH_ZOA0v-tl115jnQg")
         
@@ -57,7 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         }
     }
     
-    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print(deviceToken)
+    }
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("\(error)\nFailed to register!");
+    }
     
     func locationManager(_ manager: CLLocationManager,
                          didUpdateLocations locations: [CLLocation])
@@ -109,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()
     }
-    
+//    applicationDidRe
     // MARK: - Core Data stack
     
     lazy var persistentContainer: NSPersistentContainer = {
