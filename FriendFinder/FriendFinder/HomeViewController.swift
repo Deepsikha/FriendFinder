@@ -26,8 +26,11 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        self.navigationController?.isNavigationBarHidden = true
+        //self.title = "Home"
+        self.navigationController?.isNavigationBarHidden = false
+        let btnbac = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.done, target: AnyObject.self, action: #selector(btnback))
+        self.navigationItem.setLeftBarButtonItems([btnbac], animated: true)
+        //(btnbac, animated: true)
         
         imgProfile.layer.cornerRadius = imgProfile.frame.size.height / 2
         imgProfile.layer.borderWidth = 2
@@ -98,35 +101,50 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
     
     @IBAction func showQR(_ sender: UIButton) {
         
-        let QRView = UIView(frame: CGRect(x: self.view.frame.width / 2 - 100, y: self.view.frame.height / 2 - 100, width: 200, height:270))
-        QRView.backgroundColor = UIColor.clear
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.alpha = 0.6
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(blurEffectView)
         
+        let QRView = UIView(frame: CGRect(x: self.view.frame.width / 2 - 135, y: self.view.frame.height / 2 - 151, width: 270, height:270))
+        QRView.backgroundColor = UIColor.white
         QRView.alpha = 1.0
+        
         let image = UIImageView(image: genQRCode())
         image.alpha = 1
-        image.frame = CGRect(x: 0, y: 40, width: 200, height: 200)
-        let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: QRView
-            .frame.width, height: 40))
-        lbl.textAlignment = .center
+        image.frame = CGRect(x: 35, y: 30, width: 200, height: 200)
         
-        lbl.text = lblUsername.text! + "'s QRCode"
+        let lbl = UILabel(frame: CGRect(x: 0, y: 0, width: QRView
+            .frame.width, height: 30))
+        lbl.textAlignment = .center
+        lbl.text = lblUsername.text! + "'s QR Code"
         
         let btn  = UIButton(frame: CGRect(x: QRView.frame.width / 2 - 50, y: 240, width: 100, height: 30))
-        btn.setTitle("cancel", for: .normal)
+        btn.setTitle("Cancel", for: .normal)
         btn.setTitleColor(UIColor.black, for: .normal)
-        
+        btn.backgroundColor = UIColor.lightGray
         btn.addTarget(self, action: #selector(close), for: .touchDown)
+        
         QRView.addSubview(lbl)
         QRView.addSubview(image)
         QRView.addSubview(btn)
         UIView.animate(withDuration: 2) {
-            self.view.addSubview(QRView)
+        self.view.addSubview(QRView)
         }
+        
         
     }
     
     func close(){
+        UIView.animate(withDuration: 2) {
+            self.view.subviews[self.view.subviews.count - 1 ].alpha = 0
+            self.view.subviews[self.view.subviews.count - 2 ].alpha = 0
+        }
         (self.view.subviews.last)?.removeFromSuperview()
+        (self.view.subviews.last)?.removeFromSuperview()
+        
     }
     
     func genQRCode() -> UIImage? {
@@ -141,4 +159,5 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
         }
         return nil
     }
+
 }

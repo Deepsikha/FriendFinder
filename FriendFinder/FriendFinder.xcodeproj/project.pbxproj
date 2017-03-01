@@ -70,7 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5C26C0611E6040D20017A4F5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		5C26C0611E6040D20017A4F5 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = FriendFinder/Location.swift; sourceTree = "<group>"; };
 		5C714ECD1E614DF6001F1522 /* FriendFinder-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FriendFinder-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C714ECE1E614ECB001F1522 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlaces.framework; sourceTree = "<group>"; };
 		5C714ED01E614EDB001F1522 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
@@ -183,25 +183,10 @@
 		7D6CBE481E5C09EE00435CB1 = {
 			isa = PBXGroup;
 			children = (
-				7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */,
-				7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */,
-				5CD5D5E91E642E7D0003501C /* ForgotController.swift */,
-				5CD5D5EA1E642E7E0003501C /* ForgotController.xib */,
-				7D0432571E61444F008CB872 /* HomeViewController.swift */,
-				7D0432581E61444F008CB872 /* HomeViewController.xib */,
-				7D6B1F371E605EC800B0D132 /* tabbar.swift */,
-				7DBB7D321E604EB60026BCBD /* mapViewController.swift */,
-				7DBB7D331E604EB60026BCBD /* mapViewController.xib */,
-				5CEBEA451E5EAA7400736FB3 /* ShareData.swift */,
-				5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */,
-				7D5DC8211E5D9FF100247F63 /* friendCell.swift */,
-				7D5DC8221E5D9FF100247F63 /* friendCell.xib */,
-				7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */,
-				7D5DC81E1E5D9D7C00247F63 /* FriendViewController.xib */,
-				7D6CBE8D1E5C0FB100435CB1 /* SignUPViewController.swift */,
-				7D6CBE891E5C0AD900435CB1 /* LoginViewController.swift */,
-				7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */,
-				7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */,
+				7D71D4DE1E66CDF200FC55B6 /* Custom cell */,
+				7D71D4DC1E66CC4D00FC55B6 /* Swift File */,
+				7D71D4DD1E66CC7C00FC55B6 /* Xib File */,
+				7D71D4DF1E66CE3900FC55B6 /* Supported File */,
 				5C714ED21E614F0F001F1522 /* GooglePlaces.bundle */,
 				5C714ED01E614EDB001F1522 /* GoogleMapsBase.framework */,
 				5C714ECE1E614ECB001F1522 /* GooglePlaces.framework */,
@@ -209,7 +194,6 @@
 				7D6CBE6B1E5C09EF00435CB1 /* FriendFinderTests */,
 				7D6CBE761E5C09EF00435CB1 /* FriendFinderUITests */,
 				7D6CBE521E5C09EE00435CB1 /* Products */,
-				5C714ECD1E614DF6001F1522 /* FriendFinder-Bridging-Header.h */,
 				5C714ED41E614F31001F1522 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -234,7 +218,6 @@
 				7D6CBE601E5C09EE00435CB1 /* LaunchScreen.storyboard */,
 				7D6CBE631E5C09EE00435CB1 /* Info.plist */,
 				7D6CBE5B1E5C09EE00435CB1 /* FriendFinder.xcdatamodeld */,
-				5C26C0611E6040D20017A4F5 /* Location.swift */,
 			);
 			path = FriendFinder;
 			sourceTree = "<group>";
@@ -255,6 +238,55 @@
 				7D6CBE791E5C09EF00435CB1 /* Info.plist */,
 			);
 			path = FriendFinderUITests;
+			sourceTree = "<group>";
+		};
+		7D71D4DC1E66CC4D00FC55B6 /* Swift File */ = {
+			isa = PBXGroup;
+			children = (
+				7D6CBE891E5C0AD900435CB1 /* LoginViewController.swift */,
+				5CD5D5E91E642E7D0003501C /* ForgotController.swift */,
+				7D6CBE8D1E5C0FB100435CB1 /* SignUPViewController.swift */,
+				7D6B1F371E605EC800B0D132 /* tabbar.swift */,
+				7D0432571E61444F008CB872 /* HomeViewController.swift */,
+				7D5DC81D1E5D9D7C00247F63 /* FriendViewController.swift */,
+				7DBB7D321E604EB60026BCBD /* mapViewController.swift */,
+				7BE79CA61E63EC85005D1A9A /* friendInfoViewController.swift */,
+			);
+			name = "Swift File";
+			sourceTree = "<group>";
+		};
+		7D71D4DD1E66CC7C00FC55B6 /* Xib File */ = {
+			isa = PBXGroup;
+			children = (
+				7BE79CA71E63EC85005D1A9A /* friendInfoViewController.xib */,
+				5CD5D5EA1E642E7E0003501C /* ForgotController.xib */,
+				7D0432581E61444F008CB872 /* HomeViewController.xib */,
+				7DBB7D331E604EB60026BCBD /* mapViewController.xib */,
+				7D5DC8221E5D9FF100247F63 /* friendCell.xib */,
+				7D5DC81E1E5D9D7C00247F63 /* FriendViewController.xib */,
+				7D6CBE8A1E5C0AD900435CB1 /* LoginViewController.xib */,
+				7D6CBE911E5C2AFD00435CB1 /* SignUPViewController.xib */,
+			);
+			name = "Xib File";
+			sourceTree = "<group>";
+		};
+		7D71D4DE1E66CDF200FC55B6 /* Custom cell */ = {
+			isa = PBXGroup;
+			children = (
+				7D5DC8211E5D9FF100247F63 /* friendCell.swift */,
+			);
+			name = "Custom cell";
+			sourceTree = "<group>";
+		};
+		7D71D4DF1E66CE3900FC55B6 /* Supported File */ = {
+			isa = PBXGroup;
+			children = (
+				5C714ECD1E614DF6001F1522 /* FriendFinder-Bridging-Header.h */,
+				5C26C0611E6040D20017A4F5 /* Location.swift */,
+				5CEBEA451E5EAA7400736FB3 /* ShareData.swift */,
+				5CDE163B1E5DAD6D006AE023 /* REST-Api.swift */,
+			);
+			name = "Supported File";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

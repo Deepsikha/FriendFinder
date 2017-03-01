@@ -23,7 +23,7 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
             
         }
 
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
         self.tableFriend.delegate = self
         self.tableFriend.dataSource = self
         self.tableFriend.register(UINib(nibName: "friendCell", bundle: nil), forCellReuseIdentifier: "friendCell")
@@ -104,6 +104,10 @@ class FriendViewController: UIViewController,UITableViewDelegate, UITableViewDat
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60.0
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         
         filteredFriendList.removeAll()

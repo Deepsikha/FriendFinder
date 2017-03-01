@@ -21,7 +21,6 @@ class friendCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         session = URLSession.shared
         task = URLSessionDataTask()
         imageProfile.layer.borderWidth = 1.0
@@ -99,9 +98,10 @@ class friendCell: UITableViewCell {
         var parameter:[String:String] = [:]
         if(status == 1){
             btnAdd.isHidden = true
-            let btnRelation = UIButton(frame: CGRect(x:btnAdd.frame.origin.x - 70,y:btnAdd.frame.origin.y,width: 100,height: btnAdd.frame.height))
+            let btnRelation = UIButton(frame: CGRect(x:btnAdd.frame.origin.x - 70,y:btnAdd.frame.origin.y,width: 100,height: 40))
             btnRelation.setTitle("Confirm", for: .normal)
             btnRelation.layer.cornerRadius = 5
+            btnRelation.layer.borderWidth = 1
             btnRelation.setTitleColor(UIColor.blue, for: .normal)
             btnRelation.backgroundColor = UIColor.clear
             btnRelation.addTarget(self, action: #selector(unfriend), for: .touchDown)
