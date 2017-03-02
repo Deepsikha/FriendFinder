@@ -28,7 +28,7 @@ class HomeViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDe
         super.viewDidLoad()
         //self.title = "Home"
         self.navigationController?.isNavigationBarHidden = false
-        let btnbac = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.done, target: AnyObject.self, action: #selector(btnback))
+        let btnbac = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.done, target: AnyObject.self, action: #selector(logout(_:)))
         self.navigationItem.setLeftBarButtonItems([btnbac], animated: true)
         //(btnbac, animated: true)
         

@@ -41,10 +41,10 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
         mapTable.tableHeaderView = self.mapView
         
         mapNearfriend.delegate = self
-     
+     fetchData()
     }
     override func viewWillAppear(_ animated: Bool) {
-        fetchData()
+       
     }
     
     //MARK: - LocationManager delegate
