@@ -41,10 +41,12 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
         mapTable.tableHeaderView = self.mapView
         
         mapNearfriend.delegate = self
-     fetchData()
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
-       
+        fetchData()
+        //mapTable.reloadData()
     }
     
     //MARK: - LocationManager delegate
@@ -120,15 +122,16 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
             
         }, response_Array: { (resultsArr) in
             DispatchQueue.main.async {
-              
+                var array:[String]! = []
+                var locationarray:[CLLocation]! = []
                 for i in resultsArr {
                     
                     if(((i as AnyObject).value(forKey: "location") as! String) != ""){
                         let loc = ((i as AnyObject).value(forKey: "location") as! String).components(separatedBy: ",")
                         let userLoc = CLLocation(latitude: Double(loc[0])!,longitude: Double(loc[1])!)
-                        if((self.locManager.location?.distance(from: userLoc))! <= CLLocationDistance(10000)){
-                            self.friendlist.append((i as AnyObject).value(forKey: "username") as! String)
-                            self.friendloc.append(userLoc)
+                        if((self.locManager.location?.distance(from: userLoc))! <= CLLocationDistance(100000)){
+                            array.append((i as AnyObject).value(forKey: "username") as! String)
+                            locationarray.append(userLoc)
                            
                         }else{
                             let anno = MKPointAnnotation()
@@ -140,6 +143,8 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
                         }
                     }
                 }
+                self.friendlist = array
+                self.friendloc = locationarray
                 print(self.friendlist)
                 self.mapTable.reloadData()
             }
@@ -147,6 +152,13 @@ class mapViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let loc = friendloc[indexPath.row]
+        let span = MKCoordinateSpanMake(0.5,0.5)
+        let region = MKCoordinateRegionMake(loc.coordinate, span)
+        mapNearfriend.setRegion(region, animated: true)
+        print(loc)
+    }
     
     //MARK: - Routes creation of map
     func createRoutes(location1: CLLocationCoordinate2D,location2: MKPointAnnotation){
